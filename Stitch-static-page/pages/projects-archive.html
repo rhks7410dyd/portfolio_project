@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DEV_ARCHITECT // Full Projects Archive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#1f2942",
+                        "on-primary-fixed-variant": "#004f58",
+                        "tertiary": "#e6ecff",
+                        "on-secondary": "#233148",
+                        "primary-fixed": "#9cf0ff",
+                        "inverse-surface": "#d9e2ff",
+                        "on-tertiary-container": "#49597a",
+                        "error-container": "#93000a",
+                        "surface-tint": "#00daf3",
+                        "surface-dim": "#07122a",
+                        "inverse-primary": "#006875",
+                        "tertiary-container": "#c0d0f7",
+                        "on-tertiary-fixed": "#091b39",
+                        "primary-container": "#00e5ff",
+                        "on-secondary-fixed": "#0d1c32",
+                        "outline-variant": "#3b494c",
+                        "surface-container": "#151f37",
+                        "secondary-fixed-dim": "#b9c7e4",
+                        "on-tertiary": "#20304f",
+                        "surface-bright": "#2f3952",
+                        "secondary": "#b9c7e4",
+                        "primary": "#c3f5ff",
+                        "on-primary-container": "#00626e",
+                        "tertiary-fixed-dim": "#b6c6ed",
+                        "on-error": "#690005",
+                        "surface-container-lowest": "#030d25",
+                        "outline": "#849396",
+                        "on-surface-variant": "#bac9cc",
+                        "on-tertiary-fixed-variant": "#374767",
+                        "background": "#07122a",
+                        "secondary-container": "#3c4962",
+                        "surface-container-highest": "#2a344e",
+                        "inverse-on-surface": "#263049",
+                        "error": "#ffb4ab",
+                        "surface-variant": "#2a344e",
+                        "on-primary": "#00363d",
+                        "on-primary-fixed": "#001f24",
+                        "surface": "#07122a",
+                        "on-error-container": "#ffdad6",
+                        "on-background": "#d9e2ff",
+                        "on-surface": "#d9e2ff",
+                        "primary-fixed-dim": "#00daf3",
+                        "surface-container-low": "#101b33",
+                        "tertiary-fixed": "#d8e2ff",
+                        "on-secondary-container": "#abb9d6",
+                        "on-secondary-fixed-variant": "#39475f",
+                        "secondary-fixed": "#d6e3ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "unit": "4px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "gutter": "16px",
+                        "xl": "40px",
+                        "container-max": "1100px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "code-sm": ["JetBrains Mono"],
+                        "label-caps": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "body-md": ["15px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "code-sm": ["13px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "label-caps": ["11px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        
+        .glass-panel {
+            background-color: theme('colors.surface-container/60');
+            backdrop-filter: blur(12px);
+            border: 1px solid theme('colors.outline-variant');
+        }
+        
+        .project-row {
+            transition: all 0.2s ease-in-out;
+            border-bottom: 1px solid theme('colors.outline-variant/30');
+        }
+        
+        .project-row:hover {
+            background-color: theme('colors.surface-container-high/40');
+            border-bottom-color: theme('colors.primary/50');
+        }
+        
+        .project-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .project-row.expanded .project-details {
+            max-height: 500px;
+        }
+
+        .project-row.expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: theme('colors.surface-container-lowest'); 
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: theme('colors.surface-container-highest'); 
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: theme('colors.outline'); 
+        }
+        
+        input[type="text"]:focus, select:focus {
+            box-shadow: 0 0 0 1px theme('colors.primary');
+            border-color: theme('colors.primary');
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col font-body-md text-body-md custom-scrollbar">
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center h-14 px-gutter max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary tracking-tighter">
+                DEV_ARCHITECT
+            </div>
+<!-- Desktop Nav -->
+<div class="hidden md:flex space-x-lg items-center">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Home</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1" href="#">Projects</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Skills</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Contact</a>
+<button class="ml-sm text-on-surface-variant hover:text-primary transition-colors" title="download">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+</button>
+</div>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-on-surface-variant">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow pt-24 pb-xl px-gutter w-full max-w-container-max mx-auto">
+<!-- Header Section -->
+<header class="mb-lg">
+<h1 class="font-headline-lg text-headline-lg mb-sm">Archive</h1>
+<p class="text-on-surface-variant max-w-2xl">A comprehensive log of things I've built, broken, and shipped. Filter by technology or search for specific implementations.</p>
+</header>
+<!-- Filters & Search Bar -->
+<div class="glass-panel p-md rounded-lg mb-lg flex flex-col md:flex-row gap-md items-center justify-between">
+<div class="relative w-full md:w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span>
+<input class="w-full bg-surface-dim border border-outline-variant rounded py-sm pl-10 pr-sm text-on-surface font-code-sm text-code-sm focus:outline-none focus:ring-0 transition-colors" placeholder="Search projects..." type="text"/>
+</div>
+<div class="flex flex-wrap gap-sm w-full md:w-auto items-center">
+<span class="text-on-surface-variant font-label-caps text-label-caps mr-2">FILTER:</span>
+<select class="bg-surface-dim border border-outline-variant rounded py-sm px-sm text-on-surface font-code-sm text-code-sm focus:outline-none appearance-none pr-8 relative">
+<option value="">All Years</option>
+<option value="2024">2024</option>
+<option value="2023">2023</option>
+<option value="2022">2022</option>
+</select>
+<select class="bg-surface-dim border border-outline-variant rounded py-sm px-sm text-on-surface font-code-sm text-code-sm focus:outline-none appearance-none pr-8">
+<option value="">All Tech</option>
+<option value="react">React</option>
+<option value="node">Node.js</option>
+<option value="aws">AWS</option>
+<option value="python">Python</option>
+</select>
+<button class="bg-primary/10 border border-primary text-primary px-md py-sm rounded font-label-caps text-label-caps hover:bg-primary/20 transition-colors">Apply</button>
+</div>
+</div>
+<!-- Project List/Table Container -->
+<div class="glass-panel rounded-lg overflow-hidden">
+<!-- Table Header -->
+<div class="grid grid-cols-12 gap-sm p-sm border-b border-outline-variant/50 bg-surface-container-highest font-label-caps text-label-caps text-on-surface-variant">
+<div class="col-span-1 hidden md:block">Year</div>
+<div class="col-span-4 md:col-span-3">Project</div>
+<div class="col-span-4 hidden md:block">Built With</div>
+<div class="col-span-3 md:col-span-2 hidden lg:block">Role</div>
+<div class="col-span-5 md:col-span-2 text-right">Links</div>
+</div>
+<!-- Project Item 1 -->
+<div class="project-row" onclick="this.classList.toggle('expanded')">
+<div class="grid grid-cols-12 gap-sm p-sm items-center cursor-pointer">
+<div class="col-span-1 hidden md:block font-code-sm text-code-sm text-secondary">2024</div>
+<div class="col-span-6 md:col-span-3 font-headline-md text-[18px] font-semibold text-primary-fixed">Quantum Ledger</div>
+<div class="col-span-4 hidden md:flex flex-wrap gap-1">
+<span class="bg-surface-dim border border-outline-variant/50 px-1 py-0.5 rounded text-[10px] font-code-sm text-on-surface-variant">React</span>
+<span class="bg-surface-dim border border-outline-variant/50 px-1 py-0.5 rounded text-[10px] font-code-sm text-on-surface-variant">Rust</span>
+<span class="bg-surface-dim border border-outline-variant/50 px-1 py-0.5 rounded text-[10px] font-code-sm text-on-surface-variant">WASM</span>
+</div>
+<div class="col-span-3 md:col-span-2 hidden lg:block text-on-surface-variant text-[13px]">Lead Architect</div>
+<div class="col-span-5 md:col-span-2 flex justify-end gap-sm items-center">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#" onclick="event.stopPropagation()" title="GitHub">
+<span class="material-symbols-outlined text-[18px]">code</span>
+</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#" onclick="event.stopPropagation()" title="External Link">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</a>
+<span class="material-symbols-outlined expand-icon text-outline transition-transform duration-300">expand_more</span>
+</div>
+</div>
+<!-- Expanded Details -->
+<div class="project-details bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="p-md md:p-lg grid grid-cols-1 md:grid-cols-3 gap-lg">
+<div class="col-span-2">
+<h4 class="font-label-caps text-label-caps text-primary mb-sm">Overview</h4>
+<p class="text-on-surface-variant text-[14px] leading-relaxed mb-md">A high-performance, browser-based financial ledger utilizing WebAssembly for intensive cryptographic operations. Designed to process millions of transactions client-side with minimal memory overhead.</p>
+<h4 class="font-label-caps text-label-caps text-primary mb-sm">Key Features</h4>
+<ul class="list-disc list-inside text-on-surface-variant text-[14px] space-y-1">
+<li>Zero-knowledge proof validation via WASM.</li>
+<li>Real-time synchronization with conflict resolution.</li>
+<li>Custom binary protocol for websocket communication.</li>
+</ul>
+</div>
+<div class="col-span-1 border-l border-outline-variant/20 pl-md hidden md:block">
+<h4 class="font-label-caps text-label-caps text-primary mb-sm">Vitals</h4>
+<div class="space-y-sm text-[13px]">
+<div class="flex justify-between border-b border-outline-variant/20 pb-1">
+<span class="text-on-surface-variant">Status</span>
+<span class="text-primary-fixed">Active</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/20 pb-1">
+<span class="text-on-surface-variant">Stars</span>
+<span class="font-code-sm">1.2k</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Project Item 2 -->
+<div class="project-row" onclick="this.classList.toggle('expanded')">
+<div class="grid grid-cols-12 gap-sm p-sm items-center cursor-pointer">
+<div class="col-span-1 hidden md:block font-code-sm text-code-sm text-secondary">2023</div>
+<div class="col-span-6 md:col-span-3 font-headline-md text-[18px] font-semibold text-primary-fixed">Nebula Cache</div>
+<div class="col-span-4 hidden md:flex flex-wrap gap-1">
+<span class="bg-surface-dim border border-outline-variant/50 px-1 py-0.5 rounded text-[10px] font-code-sm text-on-surface-variant">Go</span>
+<span class="bg-surface-dim border border-outline-variant/50 px-1 py-0.5 rounded text-[10px] font-code-sm text-on-surface-variant">Redis</span>
+<span class="bg-surface-dim border border-outline-variant/50 px-1 py-0.5 rounded text-[10px] font-code-sm text-on-surface-variant">Kubernetes</span>
+</div>
+<div class="col-span-3 md:col-span-2 hidden lg:block text-on-surface-variant text-[13px]">Backend Engineer</div>
+<div class="col-span-5 md:col-span-2 flex justify-end gap-sm items-center">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#" onclick="event.stopPropagation()" title="GitHub">
+<span class="material-symbols-outlined text-[18px]">code</span>
+</a>
+<span class="material-symbols-outlined expand-icon text-outline transition-transform duration-300">expand_more</span>
+</div>
+</div>
+<!-- Expanded Details -->
+<div class="project-details bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="p-md md:p-lg grid grid-cols-1 md:grid-cols-3 gap-lg">
+<div class="col-span-2">
+<h4 class="font-label-caps text-label-caps text-primary mb-sm">Overview</h4>
+<p class="text-on-surface-variant text-[14px] leading-relaxed mb-md">Distributed caching layer built for high-throughput microservices. Reduces database load by 80% through aggressive predictive pre-fetching and intelligent invalidation strategies.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Project Item 3 -->
+<div class="project-row" onclick="this.classList.toggle('expanded')">
+<div class="grid grid-cols-12 gap-sm p-sm items-center cursor-pointer">
+<div class="col-span-1 hidden md:block font-code-sm text-code-sm text-secondary">2022</div>
+<div class="col-span-6 md:col-span-3 font-headline-md text-[18px] font-semibold text-on-surface">DataPipeline-V1</div>
+<div class="col-span-4 hidden md:flex flex-wrap gap-1">
+<span class="bg-surface-dim border border-outline-variant/50 px-1 py-0.5 rounded text-[10px] font-code-sm text-on-surface-variant">Python</span>
+<span class="bg-surface-dim border border-outline-variant/50 px-1 py-0.5 rounded text-[10px] font-code-sm text-on-surface-variant">AWS</span>
+<span class="bg-surface-dim border border-outline-variant/50 px-1 py-0.5 rounded text-[10px] font-code-sm text-on-surface-variant">Airflow</span>
+</div>
+<div class="col-span-3 md:col-span-2 hidden lg:block text-on-surface-variant text-[13px]">Data Engineer</div>
+<div class="col-span-5 md:col-span-2 flex justify-end gap-sm items-center">
+<span class="material-symbols-outlined expand-icon text-outline transition-transform duration-300">expand_more</span>
+</div>
+</div>
+<!-- Expanded Details -->
+<div class="project-details bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="p-md md:p-lg">
+<p class="text-on-surface-variant text-[14px]">Legacy ETL pipeline. Deprecated in favor of V2 streaming architecture.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-lg border-t border-outline-variant/20 bg-surface-container-lowest mt-auto opacity-80 hover:opacity-100 transition-opacity">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter max-w-container-max mx-auto gap-md">
+<div class="font-label-caps text-label-caps text-on-surface-variant">
+                © 2024 DEV_ARCHITECT // ENGINEERED FOR PERFORMANCE
+            </div>
+<div class="flex space-x-md">
+<a class="font-code-sm text-code-sm text-on-surface-variant hover:text-primary transition-colors" href="#">GitHub</a>
+<a class="font-code-sm text-code-sm text-on-surface-variant hover:text-primary transition-colors" href="#">LinkedIn</a>
+<a class="font-code-sm text-code-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Email</a>
+</div>
+</div>
+</footer>
+</body></html>
