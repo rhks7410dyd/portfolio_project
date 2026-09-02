@@ -1,0 +1,11 @@
+/* rsbuild.config.ts's <link> tags only reach the app's own HTML, not
+   Storybook's separate iframe.html, so fonts have to be loaded here too. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+/* Storybook's Docs tab wraps each story preview in its own light-themed
+   box (.docs-story), separate from our app's <body>. Override it so
+   dark-theme components stay readable there too. */
+.docs-story {
+  background-color: var(--color-background) !important;
+}
