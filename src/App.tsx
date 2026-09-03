@@ -1,12 +1,13 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Nav from './components/Nav';
 import Footer from './components/Footer';
-import Home from './pages/Home';
+import Nav from './components/Nav';
+import Activity from './pages/Activity';
+import Contact from './pages/Contact';
 import Experience from './pages/Experience';
+import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Skills from './pages/Skills';
-import Contact from './pages/Contact';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/experience" element={<Experience />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/activity" element={<Activity />} />
           <Route path="/skills" element={<Skills />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
