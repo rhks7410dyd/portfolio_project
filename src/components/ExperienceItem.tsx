@@ -37,7 +37,7 @@ const ExperienceItem = ({ role, company, bullets, tags, dotClassName = 'bg-prima
         {tags && tags.length > 0 && (
           <div className="flex gap-sm mt-md flex-wrap">
             {tags.map((tag) => (
-              <span key={tag} className="bg-surface-container-high text-primary-fixed px-2 py-1 rounded font-code-sm text-[10px]">
+              <span key={tag} className="bg-primary-fixed text-on-primary-fixed px-2 py-1 rounded font-code-sm text-[10px]">
                 {tag}
               </span>
             ))}
