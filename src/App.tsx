@@ -14,6 +14,27 @@ const TECH_STACK = [
   { icon: 'memory', label: 'Redis' },
 ];
 
+const SKILLS = [
+  { icon: 'terminal', label: 'Go' },
+  { icon: 'code', label: 'TypeScript' },
+  { icon: 'data_object', label: 'Python' },
+  { icon: 'hub', label: 'gRPC' },
+  { icon: 'database', label: 'PostgreSQL' },
+  { icon: 'bolt', label: 'Redis' },
+  { icon: 'api', label: 'GraphQL' },
+  { icon: 'cloud', label: 'AWS' },
+  { icon: 'deployed_code', label: 'Docker' },
+  { icon: 'account_tree', label: 'Kubernetes' },
+  { icon: 'memory', label: 'Kafka' },
+  { icon: 'security', label: 'OAuth2 / JWT' },
+];
+
+const CONTACT_LINKS = [
+  { icon: 'mail', label: 'EMAIL ME', href: 'mailto:hello@devarchitect.dev' },
+  { icon: 'code', label: 'GITHUB', href: 'https://github.com' },
+  { icon: 'link', label: 'LINKEDIN', href: 'https://linkedin.com' },
+];
+
 const EXPERIENCE: Experience[] = [
   {
     role: 'Senior Systems Engineer',
@@ -121,6 +142,36 @@ const App = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-md">
             {PROJECTS.map((project) => (
               <ProjectCard key={project.title} {...project} />
+            ))}
+          </div>
+        </section>
+
+        <section className="flex flex-col gap-md" id="skills">
+          <h3 className="font-headline-md text-headline-md text-on-background flex items-center gap-sm">
+            <span className="material-symbols-outlined text-primary">bolt</span>
+            Skills
+          </h3>
+          <div className="flex flex-wrap gap-sm">
+            {SKILLS.map((skill) => (
+              <TechStackIcon key={skill.label} icon={skill.icon} label={skill.label} />
+            ))}
+          </div>
+        </section>
+
+        <section className="flex flex-col gap-md items-start" id="contact">
+          <h3 className="font-headline-md text-headline-md text-on-background flex items-center gap-sm">
+            <span className="material-symbols-outlined text-primary">mail</span>
+            Contact
+          </h3>
+          <p className="text-on-surface-variant max-w-2xl">
+            Have a project in mind or just want to talk systems design? My inbox is open.
+          </p>
+          <div className="flex flex-wrap gap-md">
+            {CONTACT_LINKS.map((link) => (
+              <Button key={link.label} variant="outline" onClick={() => window.open(link.href, '_blank')}>
+                <span className="material-symbols-outlined text-[18px]">{link.icon}</span>
+                {link.label}
+              </Button>
             ))}
           </div>
         </section>
