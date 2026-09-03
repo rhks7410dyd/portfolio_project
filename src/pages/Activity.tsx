@@ -3,6 +3,7 @@ import {
   ACTIVITY_STATS,
   COMMITS,
   CONTRIBUTION_WEEKS,
+  GITHUB_USERNAME,
   TOP_REPOS,
 } from '../data/activity';
 
@@ -35,16 +36,19 @@ const Activity = () => {
         <aside className="md:col-span-3 flex flex-col gap-md">
           <div className="glass-panel rounded-lg p-md flex flex-col gap-sm">
             <h3 className="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">
-              Total Commits (YTD)
+              Contributions (Last 12mo)
             </h3>
             <div className="text-3xl font-code-sm font-bold text-primary">
-              {ACTIVITY_STATS.totalCommitsYtd}
+              {ACTIVITY_STATS.totalContributions}
             </div>
-            <div className="flex items-center gap-xs text-secondary font-code-sm text-code-sm mt-xs">
+            <div className="flex items-center gap-xs text-on-surface-variant font-code-sm text-code-sm mt-xs">
               <span className="material-symbols-outlined text-sm">
-                trending_up
+                schedule
               </span>
-              <span>{ACTIVITY_STATS.yoyChange}</span>
+              <span>
+                Updated{' '}
+                {new Date(ACTIVITY_STATS.generatedAt).toLocaleDateString()}
+              </span>
             </div>
           </div>
           <div className="glass-panel rounded-lg p-md flex flex-col gap-sm">
@@ -57,6 +61,14 @@ const Activity = () => {
             <div className="text-on-surface-variant font-code-sm text-code-sm mt-xs">
               Current: {ACTIVITY_STATS.currentStreakDays} Days
             </div>
+          </div>
+          <div className="glass-panel rounded-lg p-md">
+            <img
+              src={`https://github-readme-stats.vercel.app/api?username=${GITHUB_USERNAME}&show_icons=true&theme=transparent&hide_border=true&hide_title=true`}
+              alt={`${GITHUB_USERNAME} GitHub stats`}
+              className="w-full"
+              loading="lazy"
+            />
           </div>
           <div className="glass-panel rounded-lg p-md flex flex-col gap-sm">
             <h3 className="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-xs">
@@ -132,14 +144,11 @@ const Activity = () => {
                         {commit.hash}
                       </span>
                       <span className="font-code-sm text-code-sm text-on-tertiary-container ml-auto">
-                        {commit.when}
+                        {new Date(commit.when).toLocaleDateString()}
                       </span>
                     </div>
                     <p className="font-body-md text-body-md text-on-background font-medium group-hover:text-primary transition-colors">
                       {commit.message}
-                    </p>
-                    <p className="font-code-sm text-code-sm text-on-surface-variant line-clamp-2">
-                      {commit.description}
                     </p>
                   </div>
                 </div>
