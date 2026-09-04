@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 import ExperienceItem from '../components/ExperienceItem';
-import ProjectCard from '../components/ProjectCard';
+import ProjectCard, { type Project } from '../components/ProjectCard';
+import ProjectDetailModal from '../components/ProjectDetailModal';
 import TechStackIcon from '../components/TechStackIcon';
 import { EXPERIENCE } from '../data/experience';
 import { FEATURED_PROJECT_COUNT, PROJECTS } from '../data/projects';
@@ -26,6 +28,8 @@ const ViewAllLink = ({ to, label }: { to: string; label: string }) => (
 );
 
 const Home = () => {
+  const [selected, setSelected] = useState<Project | null>(null);
+
   return (
     <>
       <section className="flex flex-col md:flex-row gap-xl items-center py-xl relative">
@@ -90,7 +94,11 @@ const Home = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-md">
           {PROJECTS.slice(0, FEATURED_PROJECT_COUNT).map((project) => (
-            <ProjectCard key={project.title} {...project} />
+            <ProjectCard
+              key={project.slug}
+              {...project}
+              onSeeDetails={setSelected}
+            />
           ))}
         </div>
       </section>
@@ -128,6 +136,13 @@ const Home = () => {
           <ExperienceItem {...EXPERIENCE[0]} />
         </div>
       </section>
+
+      {selected && (
+        <ProjectDetailModal
+          project={selected}
+          onClose={() => setSelected(null)}
+        />
+      )}
     </>
   );
 };

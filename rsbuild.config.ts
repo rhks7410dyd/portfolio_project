@@ -5,6 +5,13 @@ import { pluginTailwindcss } from '@rsbuild/plugin-tailwindcss';
 // Docs: https://rsbuild.rs/config/
 export default defineConfig({
   plugins: [pluginReact(), pluginTailwindcss()],
+  tools: {
+    rspack: {
+      module: {
+        rules: [{ test: /\.md$/, type: 'asset/source' }],
+      },
+    },
+  },
   html: {
     title: 'DEV_ARCHITECT - Portfolio',
     tags: [
@@ -15,8 +22,18 @@ export default defineConfig({
         children:
           "try{var t=localStorage.getItem('theme');document.documentElement.classList.toggle('dark',t?t==='dark':true)}catch(e){}",
       },
-      { tag: 'link', attrs: { rel: 'preconnect', href: 'https://fonts.googleapis.com' } },
-      { tag: 'link', attrs: { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true } },
+      {
+        tag: 'link',
+        attrs: { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+      },
+      {
+        tag: 'link',
+        attrs: {
+          rel: 'preconnect',
+          href: 'https://fonts.gstatic.com',
+          crossorigin: true,
+        },
+      },
       {
         tag: 'link',
         attrs: {

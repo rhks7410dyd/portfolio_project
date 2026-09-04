@@ -1,56 +1,25 @@
 import type { Project } from '../components/ProjectCard';
+import githubProjects from './github-projects.json';
+
+/**
+ * 사내 프로젝트 등 GitHub에 공개되지 않은 프로젝트.
+ * 상세 내용은 src/data/projects/<slug>.md 파일에 작성한다.
+ */
+const INTERNAL_PROJECTS: Project[] = [
+  {
+    icon: 'business_center',
+    title: '사내 프로젝트 예시',
+    description:
+      '사내에서 진행한 프로젝트 예시입니다. 실제 내용으로 교체해주세요.',
+    tags: ['TypeScript'],
+    slug: 'internal-project-example',
+    source: 'internal',
+  },
+];
 
 export const PROJECTS: Project[] = [
-  {
-    icon: 'webhook',
-    title: 'Nexus Event Router',
-    description:
-      'A high-throughput event routing engine designed to process and distribute millions of events per second with minimal latency.',
-    tags: ['Rust', 'gRPC', 'Redis'],
-    externalUrl: '#',
-    codeUrl: '#',
-  },
-  {
-    icon: 'database',
-    title: 'Aether Analytics',
-    description:
-      'Real-time analytics dashboard backend, aggregating data streams from multiple sources into a unified, queryable store.',
-    tags: ['Python', 'ClickHouse', 'FastAPI'],
-    codeUrl: '#',
-  },
-  {
-    icon: 'security',
-    title: 'Sentinel Auth',
-    description:
-      'A robust, zero-trust authentication microservice offering OAuth2, SAML, and MFA capabilities for enterprise applications.',
-    tags: ['Node.js', 'PostgreSQL', 'JWT'],
-    externalUrl: '#',
-  },
-  {
-    icon: 'account_tree',
-    title: 'Orbit CI/CD',
-    description:
-      'A pipeline orchestration platform for building, testing, and deploying containerized services across multiple clusters.',
-    tags: ['Go', 'Kubernetes', 'Docker'],
-    codeUrl: '#',
-  },
-  {
-    icon: 'hub',
-    title: 'Mesh Gateway',
-    description:
-      'Service mesh sidecar proxy providing traffic shaping, mTLS, and observability for polyglot microservice fleets.',
-    tags: ['Envoy', 'gRPC', 'Go'],
-    externalUrl: '#',
-    codeUrl: '#',
-  },
-  {
-    icon: 'bolt',
-    title: 'Flux Cache',
-    description:
-      'A distributed, write-through caching layer with automatic invalidation, built to cut database load on read-heavy services.',
-    tags: ['Redis', 'TypeScript'],
-    codeUrl: '#',
-  },
+  ...(githubProjects as Project[]),
+  ...INTERNAL_PROJECTS,
 ];
 
 /** Home 페이지에 노출되는 대표 프로젝트 수 */

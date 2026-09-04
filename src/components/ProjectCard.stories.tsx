@@ -20,6 +20,8 @@ export const Nolinks: Story = {
     title: 'Nolinks',
     description: 'No link test story',
     tags: ['No', 'Link', 'Test'],
+    slug: 'nolinks',
+    source: 'github',
   },
 };
 
@@ -31,5 +33,7 @@ export const Bothlinks: Story = {
     tags: ['Both', 'Link', 'Test'],
     externalUrl: 'www.youtube.com',
     codeUrl: 'www.google.com',
+    slug: 'bothlinks',
+    source: 'internal',
   },
 };
