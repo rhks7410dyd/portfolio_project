@@ -1,11 +1,9 @@
 {
-  "stats": {
-    "totalCommitsYtd": 0,
-    "yoyChange": "N/A",
-    "longestStreakDays": 0,
-    "currentStreakDays": 0
-  },
-  "topRepos": [],
+  "generatedAt": "1970-01-01T00:00:00.000Z",
+  "username": "rhks7410dyd",
+  "totalContributionsLastYear": 0,
+  "totalPushedCommitsLast90Days": 0,
   "contributionWeeks": [],
-  "commits": []
+  "topRepos": [],
+  "recentCommits": []
 }
