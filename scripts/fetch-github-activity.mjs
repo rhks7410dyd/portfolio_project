@@ -71,10 +71,8 @@ function summarizeCommits(events) {
   const repoCounts = new Map();
   for (const event of pushEvents) {
     const repo = event.repo.name;
-    repoCounts.set(
-      repo,
-      (repoCounts.get(repo) ?? 0) + event.payload.commits.length,
-    );
+    const commitCount = event.payload.commits?.length ?? 0;
+    repoCounts.set(repo, (repoCounts.get(repo) ?? 0) + commitCount);
   }
   const topRepos = [...repoCounts.entries()]
     .sort((a, b) => b[1] - a[1])
@@ -82,7 +80,7 @@ function summarizeCommits(events) {
     .map(([name, commits]) => ({ name, commits }));
 
   const recentCommits = pushEvents.slice(0, 10).flatMap((event) =>
-    event.payload.commits.slice(0, 1).map((commit) => ({
+    (event.payload.commits ?? []).slice(0, 1).map((commit) => ({
       repo: event.repo.name.split('/')[1] ?? event.repo.name,
       hash: `#${commit.sha.slice(0, 7)}`,
       when: event.created_at,
@@ -94,7 +92,7 @@ function summarizeCommits(events) {
     topRepos,
     recentCommits,
     totalPushedCommits: pushEvents.reduce(
-      (n, e) => n + e.payload.commits.length,
+      (n, e) => n + (e.payload.commits?.length ?? 0),
       0,
     ),
   };
