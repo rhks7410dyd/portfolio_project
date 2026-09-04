@@ -8,7 +8,7 @@ if (rootEl) {
   const root = ReactDOM.createRoot(rootEl);
   root.render(
     <React.StrictMode>
-      <BrowserRouter>
+      <BrowserRouter basename="/portfolio_project">
         <App />
       </BrowserRouter>
     </React.StrictMode>,

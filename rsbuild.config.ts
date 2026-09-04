@@ -2,9 +2,16 @@ import { defineConfig } from '@rsbuild/core';
 import { pluginReact } from '@rsbuild/plugin-react';
 import { pluginTailwindcss } from '@rsbuild/plugin-tailwindcss';
 
+// GitHub Pages project site serves this repo under /portfolio_project/, so
+// assets and client-side routes both need that base path baked in.
+const BASE_PATH = '/portfolio_project/';
+
 // Docs: https://rsbuild.rs/config/
 export default defineConfig({
   plugins: [pluginReact(), pluginTailwindcss()],
+  server: {
+    base: BASE_PATH,
+  },
   tools: {
     rspack: {
       module: {
