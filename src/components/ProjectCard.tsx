@@ -1,5 +1,7 @@
+import { isImageIcon } from '../utils/icon';
+
 export type Project = {
-  /**Matarial Symbols 아이콘 이름 */
+  /** Matarial Symbols 아이콘 이름, 또는 svg/png 로고 경로(URL) */
   icon: string;
   title: string;
   /** 3줄 제한 (3줄이 넘어가면 잘림)*/
@@ -27,9 +29,15 @@ const ProjectCard = ({ onSeeDetails, ...project }: ProjectCardProps) => {
     <div className="glass-panel rounded p-md flex flex-col justify-between h-full group">
       <div className="space-y-sm">
         <div className="flex justify-between items-start">
-          <span className="material-symbols-outlined text-primary text-[32px]">
-            {icon}
-          </span>
+          {isImageIcon(icon) ? (
+            <div className="w-10 h-10 rounded bg-surface-container flex items-center justify-center">
+              <img src={icon} alt="" className="w-6 h-6 object-contain" />
+            </div>
+          ) : (
+            <span className="material-symbols-outlined text-primary text-[32px]">
+              {icon}
+            </span>
+          )}
           <div className="flex items-center gap-xs">
             <span className="font-code-sm text-[10px] uppercase tracking-widest text-outline border border-outline-variant/50 rounded px-1.5 py-0.5">
               {source === 'github' ? 'GitHub' : 'Internal'}
