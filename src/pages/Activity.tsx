@@ -115,6 +115,12 @@ const Activity = () => {
               </h2>
             </div>
             <div className="flex flex-col">
+              {COMMITS.length === 0 && (
+                <p className="p-md text-on-surface-variant text-sm">
+                  아직 활동 데이터가 없습니다. GitHub Actions 워크플로가 처음
+                  실행되면 채워집니다.
+                </p>
+              )}
               {COMMITS.slice(0, visibleCount).map((commit) => (
                 <div
                   key={commit.hash}

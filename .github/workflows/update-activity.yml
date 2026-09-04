@@ -1,0 +1,29 @@
+name: Update GitHub activity
+
+on:
+  schedule:
+    - cron: '0 18 * * *' # 03:00 KST daily
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+
+      - run: bun scripts/fetch-github-activity.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACTIVITY_PAT }}
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/data/github-activity.json
+          git diff --cached --quiet || git commit -m "chore: update github activity data"
+          git push
