@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-09-04T07:04:08.756Z",
+  "generatedAt": "2026-09-04T20:19:56.022Z",
   "username": "rhks7410dyd",
-  "totalContributionsLastYear": 319,
-  "totalPushedCommitsLast90Days": 12,
+  "totalContributionsLastYear": 321,
+  "totalPushedCommitsLast90Days": 14,
   "contributionWeeks": [
     [
       1,
@@ -478,13 +478,14 @@
       0,
       3,
       4,
-      2
+      3,
+      0
     ]
   ],
   "topRepos": [
     {
       "name": "rhks7410dyd/portfolio_project",
-      "commits": 6
+      "commits": 8
     },
     {
       "name": "rhks7410dyd/effective-java",
@@ -492,6 +493,18 @@
     }
   ],
   "recentCommits": [
+    {
+      "repo": "portfolio_project",
+      "hash": "#8736674",
+      "when": "2026-09-04T07:03:16Z",
+      "message": "fix: fetch actual commits via compare API, not PushEvent payload"
+    },
+    {
+      "repo": "portfolio_project",
+      "hash": "#eadb4a6",
+      "when": "2026-09-04T07:07:47Z",
+      "message": "feat: add GitHub Pages deploy workflow"
+    },
     {
       "repo": "portfolio_project",
       "hash": "#152b010",
