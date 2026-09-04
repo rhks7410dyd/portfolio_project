@@ -65,36 +65,75 @@ async function fetchRecentPushEvents() {
   return res.json();
 }
 
-function summarizeCommits(events) {
+const ZERO_SHA = '0'.repeat(40);
+
+// PushEvent payloads no longer include a `commits` array (GitHub API change),
+// only `before`/`head` shas - the actual commits have to be fetched separately.
+async function fetchCommitsForPush(repoFullName, before, head) {
+  const url =
+    before === ZERO_SHA
+      ? `https://api.github.com/repos/${repoFullName}/commits/${head}`
+      : `https://api.github.com/repos/${repoFullName}/compare/${before}...${head}`;
+  const res = await fetch(url, { headers });
+  if (!res.ok) return [];
+  const data = await res.json();
+  const commits = before === ZERO_SHA ? [data] : (data.commits ?? []);
+  return commits.map((c) => ({ sha: c.sha, message: c.commit.message }));
+}
+
+// ponytail: fixed batch size instead of a queue, fine for the ~dozens of pushes/day this deals with
+const CONCURRENCY = 5;
+async function mapWithConcurrency(items, fn) {
+  const results = [];
+  for (let i = 0; i < items.length; i += CONCURRENCY) {
+    const batch = items.slice(i, i + CONCURRENCY);
+    results.push(...(await Promise.all(batch.map(fn))));
+  }
+  return results;
+}
+
+async function summarizeCommits(events) {
   const pushEvents = events.filter((e) => e.type === 'PushEvent');
 
+  const commitsByEvent = await mapWithConcurrency(pushEvents, (event) =>
+    fetchCommitsForPush(
+      event.repo.name,
+      event.payload.before,
+      event.payload.head,
+    ),
+  );
+
   const repoCounts = new Map();
-  for (const event of pushEvents) {
+  pushEvents.forEach((event, i) => {
     const repo = event.repo.name;
-    const commitCount = event.payload.commits?.length ?? 0;
-    repoCounts.set(repo, (repoCounts.get(repo) ?? 0) + commitCount);
-  }
+    repoCounts.set(
+      repo,
+      (repoCounts.get(repo) ?? 0) + commitsByEvent[i].length,
+    );
+  });
   const topRepos = [...repoCounts.entries()]
     .sort((a, b) => b[1] - a[1])
     .slice(0, 5)
     .map(([name, commits]) => ({ name, commits }));
 
-  const recentCommits = pushEvents.slice(0, 10).flatMap((event) =>
-    (event.payload.commits ?? []).slice(0, 1).map((commit) => ({
-      repo: event.repo.name.split('/')[1] ?? event.repo.name,
-      hash: `#${commit.sha.slice(0, 7)}`,
-      when: event.created_at,
-      message: commit.message.split('\n')[0],
-    })),
-  );
+  const recentCommits = pushEvents
+    .map((event, i) => {
+      const latest = commitsByEvent[i].at(-1);
+      if (!latest) return null;
+      return {
+        repo: event.repo.name.split('/')[1] ?? event.repo.name,
+        hash: `#${latest.sha.slice(0, 7)}`,
+        when: event.created_at,
+        message: latest.message.split('\n')[0],
+      };
+    })
+    .filter((c) => c !== null)
+    .slice(0, 10);
 
   return {
     topRepos,
     recentCommits,
-    totalPushedCommits: pushEvents.reduce(
-      (n, e) => n + (e.payload.commits?.length ?? 0),
-      0,
-    ),
+    totalPushedCommits: commitsByEvent.reduce((n, c) => n + c.length, 0),
   };
 }
 
@@ -108,7 +147,7 @@ const weeks = calendar.weeks.map((week) =>
 );
 
 const { topRepos, recentCommits, totalPushedCommits } =
-  summarizeCommits(events);
+  await summarizeCommits(events);
 
 const snapshot = {
   generatedAt: new Date().toISOString(),
