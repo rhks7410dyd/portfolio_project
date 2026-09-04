@@ -1,10 +1,30 @@
-export type Skill = { icon: string; label: string };
+import type { IconValue } from '../utils/icon';
+
+export type Skill = { icon: IconValue; label: string };
 
 export const SKILLS: Skill[] = [
   { icon: 'terminal', label: 'Go' },
-  { icon: 'code', label: 'TypeScript' },
+  {
+    icon: {
+      type: 'file',
+      text: 'TS',
+      background: '#BFDBFE',
+      labelBackground: '#2563EB',
+      labelColor: '#FFFFFF',
+    },
+    label: 'TypeScript',
+  },
   { icon: 'data_object', label: 'Python' },
-  { icon: 'hub', label: 'gRPC' },
+  {
+    icon: {
+      type: 'file',
+      text: 'gRPC',
+      background: '#BBF7D0',
+      labelBackground: '#0F766E',
+      labelColor: '#FFFFFF',
+    },
+    label: 'gRPC',
+  },
   { icon: 'database', label: 'PostgreSQL' },
   { icon: 'bolt', label: 'Redis' },
   { icon: 'api', label: 'GraphQL' },

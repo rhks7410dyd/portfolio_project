@@ -1,6 +1,7 @@
 import { marked } from 'marked';
 import { useEffect, useState } from 'react';
-import { isImageIcon } from '../utils/icon';
+import { isFileIcon } from '../utils/icon';
+import FileTypeIcon from './FileTypeIcon';
 import type { Project } from './ProjectCard';
 
 const loadDetailMd = (slug: string) =>
@@ -49,14 +50,8 @@ const ProjectDetailModal = ({
       >
         <div className="flex justify-between items-start mb-md gap-md">
           <div className="flex items-center gap-sm">
-            {isImageIcon(project.icon) ? (
-              <div className="w-9 h-9 rounded bg-surface-container flex items-center justify-center shrink-0">
-                <img
-                  src={project.icon}
-                  alt=""
-                  className="w-5 h-5 object-contain"
-                />
-              </div>
+            {isFileIcon(project.icon) ? (
+              <FileTypeIcon {...project.icon} className="w-8 h-8 shrink-0" />
             ) : (
               <span className="material-symbols-outlined text-primary text-[28px]">
                 {project.icon}

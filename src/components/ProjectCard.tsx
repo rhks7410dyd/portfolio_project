@@ -1,8 +1,10 @@
-import { isImageIcon } from '../utils/icon';
+import type { IconValue } from '../utils/icon';
+import { isFileIcon } from '../utils/icon';
+import FileTypeIcon from './FileTypeIcon';
 
 export type Project = {
-  /** Matarial Symbols 아이콘 이름, 또는 svg/png 로고 경로(URL) */
-  icon: string;
+  /** Matarial Symbols 아이콘 이름, 또는 문서형 로고(FileIcon) */
+  icon: IconValue;
   title: string;
   /** 3줄 제한 (3줄이 넘어가면 잘림)*/
   description: string;
@@ -29,10 +31,8 @@ const ProjectCard = ({ onSeeDetails, ...project }: ProjectCardProps) => {
     <div className="glass-panel rounded p-md flex flex-col justify-between h-full group">
       <div className="space-y-sm">
         <div className="flex justify-between items-start">
-          {isImageIcon(icon) ? (
-            <div className="w-10 h-10 rounded bg-surface-container flex items-center justify-center">
-              <img src={icon} alt="" className="w-6 h-6 object-contain" />
-            </div>
+          {isFileIcon(icon) ? (
+            <FileTypeIcon {...icon} className="w-9 h-9" />
           ) : (
             <span className="material-symbols-outlined text-primary text-[32px]">
               {icon}
