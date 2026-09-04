@@ -1,1 +1,121 @@
-[]
+[
+  {
+    "icon": "code",
+    "title": "portfolio_project",
+    "description": "No description provided.",
+    "tags": [
+      "HTML"
+    ],
+    "codeUrl": "https://github.com/rhks7410dyd/portfolio_project",
+    "slug": "portfolio_project",
+    "source": "github"
+  },
+  {
+    "icon": "code",
+    "title": "effective-java",
+    "description": "No description provided.",
+    "tags": [],
+    "codeUrl": "https://github.com/rhks7410dyd/effective-java",
+    "slug": "effective-java",
+    "source": "github"
+  },
+  {
+    "icon": "code",
+    "title": "random-station-draw",
+    "description": "No description provided.",
+    "tags": [
+      "JavaScript"
+    ],
+    "externalUrl": "https://random-station-draw-ten.vercel.app",
+    "codeUrl": "https://github.com/rhks7410dyd/random-station-draw",
+    "slug": "random-station-draw",
+    "source": "github"
+  },
+  {
+    "icon": "code",
+    "title": "seniorvibe-ils-survey",
+    "description": "No description provided.",
+    "tags": [
+      "TypeScript"
+    ],
+    "codeUrl": "https://github.com/rhks7410dyd/seniorvibe-ils-survey",
+    "slug": "seniorvibe-ils-survey",
+    "source": "github"
+  },
+  {
+    "icon": "code",
+    "title": "dart_practice",
+    "description": "dart practice repository",
+    "tags": [
+      "Dart"
+    ],
+    "codeUrl": "https://github.com/rhks7410dyd/dart_practice",
+    "slug": "dart_practice",
+    "source": "github"
+  },
+  {
+    "icon": "code",
+    "title": "2025_graduation_thesis",
+    "description": "SKKU 2025 graduation thesis by kwanyongJung",
+    "tags": [],
+    "codeUrl": "https://github.com/rhks7410dyd/2025_graduation_thesis",
+    "slug": "2025_graduation_thesis",
+    "source": "github"
+  },
+  {
+    "icon": "code",
+    "title": "unsafe-finder",
+    "description": "rust unsafe code block finder",
+    "tags": [],
+    "codeUrl": "https://github.com/rhks7410dyd/unsafe-finder",
+    "slug": "unsafe-finder",
+    "source": "github"
+  },
+  {
+    "icon": "code",
+    "title": "24_2_WEBPROGRAMMINGPRACTICE_PA1",
+    "description": "No description provided.",
+    "tags": [
+      "HTML"
+    ],
+    "codeUrl": "https://github.com/rhks7410dyd/24_2_WEBPROGRAMMINGPRACTICE_PA1",
+    "slug": "24_2_WEBPROGRAMMINGPRACTICE_PA1",
+    "source": "github"
+  },
+  {
+    "icon": "code",
+    "title": "CriptoBoard",
+    "description": "No description provided.",
+    "tags": [],
+    "codeUrl": "https://github.com/rhks7410dyd/CriptoBoard",
+    "slug": "CriptoBoard",
+    "source": "github"
+  },
+  {
+    "icon": "code",
+    "title": "Lostark_for_myslef",
+    "description": "test and make light program for using myself",
+    "tags": [],
+    "codeUrl": "https://github.com/rhks7410dyd/Lostark_for_myslef",
+    "slug": "Lostark_for_myslef",
+    "source": "github"
+  },
+  {
+    "icon": "code",
+    "title": "test",
+    "description": "No description provided.",
+    "tags": [],
+    "codeUrl": "https://github.com/rhks7410dyd/test",
+    "slug": "test",
+    "source": "github"
+  },
+  {
+    "icon": "code",
+    "title": "hello-spring-space",
+    "description": "hello-spring-space",
+    "tags": [],
+    "codeUrl": "https://github.com/rhks7410dyd/hello-spring-space",
+    "slug": "hello-spring-space",
+    "source": "github"
+  }
+]
