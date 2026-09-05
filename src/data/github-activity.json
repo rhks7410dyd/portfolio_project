@@ -1,18 +1,9 @@
 {
-  "generatedAt": "2026-09-04T20:19:56.022Z",
+  "generatedAt": "2026-09-05T19:58:56.090Z",
   "username": "rhks7410dyd",
   "totalContributionsLastYear": 321,
-  "totalPushedCommitsLast90Days": 14,
+  "totalPushedCommitsLast90Days": 20,
   "contributionWeeks": [
-    [
-      1,
-      0,
-      2,
-      2,
-      2,
-      0,
-      0
-    ],
     [
       0,
       0,
@@ -480,12 +471,15 @@
       4,
       3,
       0
+    ],
+    [
+      0
     ]
   ],
   "topRepos": [
     {
       "name": "rhks7410dyd/portfolio_project",
-      "commits": 8
+      "commits": 14
     },
     {
       "name": "rhks7410dyd/effective-java",
@@ -493,6 +487,24 @@
     }
   ],
   "recentCommits": [
+    {
+      "repo": "portfolio_project",
+      "hash": "#e1ec461",
+      "when": "2026-09-03T08:46:00Z",
+      "message": "Merge pull request #4 from rhks7410dyd/worktree-github-activity-snapshot"
+    },
+    {
+      "repo": "portfolio_project",
+      "hash": "#27dcb12",
+      "when": "2026-09-03T07:42:34Z",
+      "message": "Merge pull request #2 from rhks7410dyd/worktree-multi-page-routes"
+    },
+    {
+      "repo": "portfolio_project",
+      "hash": "#c0817df",
+      "when": "2026-09-03T07:47:32Z",
+      "message": "feat : storybook 새 컴포넌트 추가"
+    },
     {
       "repo": "portfolio_project",
       "hash": "#8736674",
@@ -534,24 +546,6 @@
       "hash": "#1e43560",
       "when": "2026-08-26T06:24:20Z",
       "message": "vault backup: 2026-08-26 15:23:54"
-    },
-    {
-      "repo": "effective-java",
-      "hash": "#2229b73",
-      "when": "2026-08-25T08:48:07Z",
-      "message": "vault backup: 2026-08-25 17:47:01"
-    },
-    {
-      "repo": "effective-java",
-      "hash": "#b42e147",
-      "when": "2026-08-25T08:49:47Z",
-      "message": "vault backup: 2026-08-25 17:49:30"
-    },
-    {
-      "repo": "effective-java",
-      "hash": "#99cc53b",
-      "when": "2026-08-25T03:57:02Z",
-      "message": "vault backup: 2026-08-25 12:56:54"
     }
   ]
 }
