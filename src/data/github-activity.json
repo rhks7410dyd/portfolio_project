@@ -1,18 +1,9 @@
 {
-  "generatedAt": "2026-09-04T07:04:08.756Z",
+  "generatedAt": "2026-09-07T21:09:43.322Z",
   "username": "rhks7410dyd",
-  "totalContributionsLastYear": 319,
-  "totalPushedCommitsLast90Days": 12,
+  "totalContributionsLastYear": 309,
+  "totalPushedCommitsLast90Days": 26,
   "contributionWeeks": [
-    [
-      1,
-      0,
-      2,
-      2,
-      2,
-      0,
-      0
-    ],
     [
       0,
       0,
@@ -478,13 +469,19 @@
       0,
       3,
       4,
-      2
+      3,
+      0
+    ],
+    [
+      0,
+      0,
+      0
     ]
   ],
   "topRepos": [
     {
       "name": "rhks7410dyd/portfolio_project",
-      "commits": 6
+      "commits": 20
     },
     {
       "name": "rhks7410dyd/effective-java",
@@ -492,6 +489,54 @@
     }
   ],
   "recentCommits": [
+    {
+      "repo": "portfolio_project",
+      "hash": "#7341963",
+      "when": "2026-09-04T07:37:43Z",
+      "message": "feat: replace raster-logo icon option with a drawn document/label badge"
+    },
+    {
+      "repo": "portfolio_project",
+      "hash": "#617da74",
+      "when": "2026-09-04T06:55:07Z",
+      "message": "fix: guard against PushEvents missing a commits payload"
+    },
+    {
+      "repo": "portfolio_project",
+      "hash": "#ff080f6",
+      "when": "2026-09-04T06:46:45Z",
+      "message": "Merge remote-tracking branch 'origin/main'"
+    },
+    {
+      "repo": "portfolio_project",
+      "hash": "#e1ec461",
+      "when": "2026-09-03T08:46:00Z",
+      "message": "Merge pull request #4 from rhks7410dyd/worktree-github-activity-snapshot"
+    },
+    {
+      "repo": "portfolio_project",
+      "hash": "#27dcb12",
+      "when": "2026-09-03T07:42:34Z",
+      "message": "Merge pull request #2 from rhks7410dyd/worktree-multi-page-routes"
+    },
+    {
+      "repo": "portfolio_project",
+      "hash": "#c0817df",
+      "when": "2026-09-03T07:47:32Z",
+      "message": "feat : storybook 새 컴포넌트 추가"
+    },
+    {
+      "repo": "portfolio_project",
+      "hash": "#8736674",
+      "when": "2026-09-04T07:03:16Z",
+      "message": "fix: fetch actual commits via compare API, not PushEvent payload"
+    },
+    {
+      "repo": "portfolio_project",
+      "hash": "#eadb4a6",
+      "when": "2026-09-04T07:07:47Z",
+      "message": "feat: add GitHub Pages deploy workflow"
+    },
     {
       "repo": "portfolio_project",
       "hash": "#152b010",
@@ -503,42 +548,6 @@
       "hash": "#a25dcbe",
       "when": "2026-09-03T08:08:36Z",
       "message": "test: wrap App in MemoryRouter for the smoke test"
-    },
-    {
-      "repo": "portfolio_project",
-      "hash": "#8dbe172",
-      "when": "2026-09-03T07:30:22Z",
-      "message": "Merge pull request #1 from rhks7410dyd/worktree-modular-wandering-pizza"
-    },
-    {
-      "repo": "effective-java",
-      "hash": "#dd736ed",
-      "when": "2026-08-26T07:36:44Z",
-      "message": "vault backup: 2026-08-26 16:36:19"
-    },
-    {
-      "repo": "effective-java",
-      "hash": "#1e43560",
-      "when": "2026-08-26T06:24:20Z",
-      "message": "vault backup: 2026-08-26 15:23:54"
-    },
-    {
-      "repo": "effective-java",
-      "hash": "#2229b73",
-      "when": "2026-08-25T08:48:07Z",
-      "message": "vault backup: 2026-08-25 17:47:01"
-    },
-    {
-      "repo": "effective-java",
-      "hash": "#b42e147",
-      "when": "2026-08-25T08:49:47Z",
-      "message": "vault backup: 2026-08-25 17:49:30"
-    },
-    {
-      "repo": "effective-java",
-      "hash": "#99cc53b",
-      "when": "2026-08-25T03:57:02Z",
-      "message": "vault backup: 2026-08-25 12:56:54"
     }
   ]
 }
