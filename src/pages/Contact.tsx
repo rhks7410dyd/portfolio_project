@@ -1,4 +1,5 @@
 import Button from '../components/Button';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const CONTACT_LINKS = [
   { icon: 'mail', label: 'EMAIL ME', href: 'mailto:hello@devarchitect.dev' },
@@ -7,15 +8,15 @@ const CONTACT_LINKS = [
 ];
 
 const Contact = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="flex flex-col gap-md items-start">
       <h3 className="font-headline-md text-headline-md text-on-background flex items-center gap-sm">
         <span className="material-symbols-outlined text-primary">mail</span>
-        Contact
+        {t.contact.title}
       </h3>
-      <p className="text-on-surface-variant max-w-2xl">
-        Have a project in mind or just want to talk systems design? My inbox is open.
-      </p>
+      <p className="text-on-surface-variant max-w-2xl">{t.contact.description}</p>
       <div className="flex flex-wrap gap-md">
         {CONTACT_LINKS.map((link) => (
           <Button key={link.label} variant="outline" onClick={() => window.open(link.href, '_blank')}>

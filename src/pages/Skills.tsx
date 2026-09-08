@@ -1,5 +1,6 @@
 import TechStackIcon from '../components/TechStackIcon';
 import { SKILLS } from '../data/skills';
+import { useLanguage } from '../i18n/LanguageContext';
 
 type Lab = {
   name: string;
@@ -58,12 +59,14 @@ const CURRENT_RADAR = [
 ];
 
 const Skills = () => {
+  const { t } = useLanguage();
+
   return (
     <div className="flex flex-col gap-xl">
       <section className="flex flex-col gap-md">
         <h3 className="font-headline-md text-headline-md text-on-background flex items-center gap-sm">
           <span className="material-symbols-outlined text-primary">bolt</span>
-          Skills
+          {t.skills.title}
         </h3>
         <div className="flex flex-wrap gap-sm">
           {SKILLS.map((skill) => (
