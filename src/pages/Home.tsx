@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState, type PointerEvent } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 import ExperienceItem from '../components/ExperienceItem';
@@ -15,7 +15,15 @@ const TECH_STACK = [
   { icon: 'cloud', label: 'AWS' },
   { icon: 'deployed_code', label: 'Docker' },
   { icon: 'memory', label: 'Redis' },
+  { icon: 'hub', label: 'Kubernetes' },
+  { icon: 'bolt', label: 'Kafka' },
+  { icon: 'terminal', label: 'Linux' },
+  { icon: 'account_tree', label: 'Git' },
 ];
+
+// 3 copies laid side by side so dragging never runs out of icons; the scroll
+// position gets silently re-centered into the middle copy when it nears an edge.
+const LOOPED_TECH_STACK = [...TECH_STACK, ...TECH_STACK, ...TECH_STACK];
 
 const ViewAllLink = ({ to, label }: { to: string; label: string }) => (
   <Link
@@ -29,6 +37,70 @@ const ViewAllLink = ({ to, label }: { to: string; label: string }) => (
 
 const Home = () => {
   const [selected, setSelected] = useState<Project | null>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const drag = useRef<{ startX: number; scrollLeft: number; lastX: number; lastT: number; velocity: number } | null>(null);
+  const inertiaFrame = useRef<number | null>(null);
+
+  const recenter = (track: HTMLDivElement) => {
+    // wrapped around one of the outer copies, jump back into the middle copy
+    const setWidth = track.scrollWidth / 3;
+    if (track.scrollLeft < setWidth * 0.5) {
+      track.scrollLeft += setWidth;
+    } else if (track.scrollLeft > setWidth * 1.5) {
+      track.scrollLeft -= setWidth;
+    }
+  };
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (track) track.scrollLeft = track.scrollWidth / 3;
+  }, []);
+
+  const onDragStart = (e: PointerEvent) => {
+    const track = trackRef.current;
+    if (!track) return;
+    if (inertiaFrame.current) cancelAnimationFrame(inertiaFrame.current);
+    track.setPointerCapture(e.pointerId);
+    drag.current = {
+      startX: e.clientX,
+      scrollLeft: track.scrollLeft,
+      lastX: e.clientX,
+      lastT: performance.now(),
+      velocity: 0,
+    };
+  };
+
+  const onDragMove = (e: PointerEvent) => {
+    const track = trackRef.current;
+    if (!track || !drag.current) return;
+    track.scrollLeft = drag.current.scrollLeft - (e.clientX - drag.current.startX);
+
+    const now = performance.now();
+    const dt = now - drag.current.lastT || 16;
+    drag.current.velocity = (drag.current.lastX - e.clientX) / dt;
+    drag.current.lastX = e.clientX;
+    drag.current.lastT = now;
+  };
+
+  const onDragEnd = () => {
+    const track = trackRef.current;
+    if (!track || !drag.current) return;
+    let velocity = drag.current.velocity;
+    drag.current = null;
+
+    const step = () => {
+      if (!track || Math.abs(velocity) < 0.02) {
+        inertiaFrame.current = null;
+        return;
+      }
+      track.scrollLeft += velocity * 16;
+      velocity *= 0.95;
+      recenter(track);
+      inertiaFrame.current = requestAnimationFrame(step);
+    };
+    recenter(track);
+    inertiaFrame.current = requestAnimationFrame(step);
+  };
 
   return (
     <>
@@ -70,15 +142,22 @@ const Home = () => {
             </Link>
           </div>
         </div>
-        <div className="flex-1 grid grid-cols-4 sm:grid-cols-5 gap-sm justify-center md:justify-end items-center relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background z-10 pointer-events-none hidden md:block" />
-          {TECH_STACK.map((tech) => (
-            <TechStackIcon
-              key={tech.label}
-              icon={tech.icon}
-              label={tech.label}
-            />
-          ))}
+        <div className="flex-1 relative min-w-0">
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background z-10 pointer-events-none" />
+          <div
+            ref={trackRef}
+            onPointerDown={onDragStart}
+            onPointerMove={onDragMove}
+            onPointerUp={onDragEnd}
+            onPointerCancel={onDragEnd}
+            className="flex gap-[13px] overflow-x-auto touch-pan-y cursor-grab active:cursor-grabbing select-none pt-10 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {LOOPED_TECH_STACK.map((tech, index) => (
+              <div key={`${tech.label}-${index}`} className="shrink-0">
+                <TechStackIcon icon={tech.icon} label={tech.label} plain />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
