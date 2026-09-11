@@ -1,0 +1,50 @@
+{
+  "studyLabsTitle": "학습 실험실",
+  "studyLabs": [
+    {
+      "name": "Algorithm-Solving",
+      "statusKey": "active",
+      "status": "진행 중",
+      "description": "성능 최적화에 집중. 동적 계획법과 그래프 순회에 대한 심화 학습.",
+      "insight": "트리 기반 재귀를 위한 메모이제이션 전략."
+    },
+    {
+      "name": "Design-Pattern-Notes",
+      "statusKey": "reference",
+      "status": "참고 자료",
+      "description": "시스템 설계에 집중. 마이크로서비스 아키텍처와 도메인 주도 설계 패턴 모음.",
+      "insight": "고처리량 시스템에서의 이벤트 소싱 vs CRUD."
+    },
+    {
+      "name": "New-Tech-PoC",
+      "statusKey": "active",
+      "status": "진행 중",
+      "description": "WebAssembly & Rust. 컴파일 타깃과 JS 상호운용 성능을 평가 중.",
+      "insight": "V8과 Wasm 사이의 메모리 관리 경계."
+    }
+  ],
+  "insightLabel": "인사이트:",
+  "milestonesTitle": "학습 마일스톤",
+  "milestones": [
+    {
+      "title": "Kubernetes 기초 마스터",
+      "description": "클러스터 아키텍처, 파드 생명주기, 인그레스 컨트롤러에 대한 깊은 이해를 습득.",
+      "dotClassName": "bg-primary shadow-[0_0_8px_var(--color-primary-container)]"
+    },
+    {
+      "title": "React Reconciliation 심층 학습",
+      "description": "복잡한 UI 상태를 위한 Fiber 아키텍처와 렌더 단계 최적화 분석.",
+      "dotClassName": "bg-outline-variant"
+    }
+  ],
+  "readingQueueTitle": "읽을 책 목록",
+  "readingQueue": [
+    { "title": "Designing Data-Intensive Apps", "author": "Martin Kleppmann" },
+    { "title": "Rust in Action", "author": "Tim McNamara" }
+  ],
+  "radarTitle": "현재 관심 분야",
+  "radar": [
+    { "label": "WebAssembly용 Rust", "progress": 45 },
+    { "label": "eBPF 네트워킹", "progress": 15 }
+  ]
+}

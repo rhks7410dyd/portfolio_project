@@ -3,7 +3,7 @@ import { EXPERIENCE } from '../data/experience';
 import { useLanguage } from '../i18n/LanguageContext';
 
 const Experience = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   return (
     <section className="flex flex-col gap-md">
@@ -14,7 +14,7 @@ const Experience = () => {
         {t.experience.title}
       </h3>
       <div className="flex flex-col gap-sm border-l-2 border-surface-bright ml-[10px] pl-md py-sm">
-        {EXPERIENCE.map((exp) => (
+        {EXPERIENCE[lang].map((exp) => (
           <ExperienceItem key={exp.role} {...exp} />
         ))}
       </div>

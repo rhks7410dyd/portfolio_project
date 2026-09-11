@@ -212,7 +212,7 @@ const Home = () => {
           <ViewAllLink to={`/${lang}/experience`} label={t.home.viewFullHistory} />
         </div>
         <div className="flex flex-col gap-sm border-l-2 border-surface-bright ml-[10px] pl-md py-sm">
-          <ExperienceItem {...EXPERIENCE[0]} />
+          <ExperienceItem {...EXPERIENCE[lang][0]} />
         </div>
       </section>
 

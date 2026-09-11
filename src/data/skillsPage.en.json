@@ -1,0 +1,50 @@
+{
+  "studyLabsTitle": "Study Labs",
+  "studyLabs": [
+    {
+      "name": "Algorithm-Solving",
+      "statusKey": "active",
+      "status": "Active",
+      "description": "Performance optimization focus. Deep dives into dynamic programming and graph traversals.",
+      "insight": "Memoization strategies for tree-based recursion."
+    },
+    {
+      "name": "Design-Pattern-Notes",
+      "statusKey": "reference",
+      "status": "Reference",
+      "description": "System design focus. Compendium of microservices architectures and domain-driven design patterns.",
+      "insight": "Event sourcing vs CRUD in high-throughput systems."
+    },
+    {
+      "name": "New-Tech-PoC",
+      "statusKey": "active",
+      "status": "Active",
+      "description": "WebAssembly & Rust. Evaluating compilation targets and JS interop performance.",
+      "insight": "Memory management boundaries between V8 and Wasm."
+    }
+  ],
+  "insightLabel": "Insight:",
+  "milestonesTitle": "Learning Milestones",
+  "milestones": [
+    {
+      "title": "Mastered Kubernetes Fundamentals",
+      "description": "Achieved deep understanding of cluster architecture, pod lifecycles, and ingress controllers.",
+      "dotClassName": "bg-primary shadow-[0_0_8px_var(--color-primary-container)]"
+    },
+    {
+      "title": "Deep Dive into React Reconciliation",
+      "description": "Analyzed the Fiber architecture and render phase optimizations for complex UI states.",
+      "dotClassName": "bg-outline-variant"
+    }
+  ],
+  "readingQueueTitle": "Reading Queue",
+  "readingQueue": [
+    { "title": "Designing Data-Intensive Apps", "author": "Martin Kleppmann" },
+    { "title": "Rust in Action", "author": "Tim McNamara" }
+  ],
+  "radarTitle": "Current Radar",
+  "radar": [
+    { "label": "Rust for WebAssembly", "progress": 45 },
+    { "label": "eBPF Networking", "progress": 15 }
+  ]
+}
