@@ -6,6 +6,7 @@ import {
   GITHUB_USERNAME,
   TOP_REPOS,
 } from '../data/activity';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const CONTRIB_CLASSES = [
   'bg-surface-container-high',
@@ -20,23 +21,22 @@ const COMMITS_PAGE_SIZE = 4;
 const Activity = () => {
   const [visibleCount, setVisibleCount] = useState(COMMITS_PAGE_SIZE);
   const hasMore = visibleCount < COMMITS.length;
+  const { t } = useLanguage();
 
   return (
     <div className="flex flex-col gap-lg">
       <header>
         <h1 className="font-headline-lg text-headline-lg text-on-background mb-sm">
-          Commit History
+          {t.activity.title}
         </h1>
-        <p className="text-on-surface-variant">
-          A detailed log of recent engineering activity and code contributions.
-        </p>
+        <p className="text-on-surface-variant">{t.activity.description}</p>
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-lg">
         <aside className="md:col-span-3 flex flex-col gap-md">
           <div className="glass-panel rounded-lg p-md flex flex-col gap-sm">
             <h3 className="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">
-              Contributions (Last 12mo)
+              {t.activity.contributions}
             </h3>
             <div className="text-3xl font-code-sm font-bold text-primary">
               {ACTIVITY_STATS.totalContributions}
@@ -46,20 +46,20 @@ const Activity = () => {
                 schedule
               </span>
               <span>
-                Updated{' '}
+                {t.activity.updated}{' '}
                 {new Date(ACTIVITY_STATS.generatedAt).toLocaleDateString()}
               </span>
             </div>
           </div>
           <div className="glass-panel rounded-lg p-md flex flex-col gap-sm">
             <h3 className="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">
-              Longest Streak
+              {t.activity.longestStreak}
             </h3>
             <div className="text-3xl font-code-sm font-bold text-primary">
-              {ACTIVITY_STATS.longestStreakDays} Days
+              {ACTIVITY_STATS.longestStreakDays} {t.activity.days}
             </div>
             <div className="text-on-surface-variant font-code-sm text-code-sm mt-xs">
-              Current: {ACTIVITY_STATS.currentStreakDays} Days
+              {t.activity.current}: {ACTIVITY_STATS.currentStreakDays} {t.activity.days}
             </div>
           </div>
           <div className="glass-panel rounded-lg p-md">
@@ -72,7 +72,7 @@ const Activity = () => {
           </div>
           <div className="glass-panel rounded-lg p-md flex flex-col gap-sm">
             <h3 className="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-xs">
-              Top Active Repos
+              {t.activity.topRepos}
             </h3>
             <ul className="flex flex-col gap-xs font-code-sm text-code-sm">
               {TOP_REPOS.map((repo) => (
@@ -94,14 +94,14 @@ const Activity = () => {
           <div className="glass-panel rounded-lg p-md overflow-x-auto">
             <div className="flex justify-between items-center mb-sm">
               <h2 className="font-headline-md text-headline-md text-on-background text-[18px]">
-                Contribution Graph
+                {t.activity.contributionGraph}
               </h2>
               <div className="flex items-center gap-2 font-code-sm text-code-sm text-on-surface-variant">
-                <span>Less</span>
+                <span>{t.activity.less}</span>
                 {CONTRIB_CLASSES.map((cls) => (
                   <div key={cls} className={`w-3 h-3 rounded-sm ${cls}`} />
                 ))}
-                <span>More</span>
+                <span>{t.activity.more}</span>
               </div>
             </div>
             <div className="flex gap-[3px] min-w-max pb-2">
@@ -123,14 +123,13 @@ const Activity = () => {
           <div className="bg-surface-container/40 border border-outline-variant/30 rounded-lg overflow-hidden flex flex-col">
             <div className="bg-surface-container-highest px-md py-sm border-b border-outline-variant/30">
               <h2 className="font-headline-md text-headline-md text-[16px] text-on-background">
-                Recent Commits
+                {t.activity.recentCommits}
               </h2>
             </div>
             <div className="flex flex-col">
               {COMMITS.length === 0 && (
                 <p className="p-md text-on-surface-variant text-sm">
-                  아직 활동 데이터가 없습니다. GitHub Actions 워크플로가 처음
-                  실행되면 채워집니다.
+                  {t.activity.noData}
                 </p>
               )}
               {COMMITS.slice(0, visibleCount).map((commit) => (
@@ -167,7 +166,7 @@ const Activity = () => {
                   onClick={() => setVisibleCount((n) => n + COMMITS_PAGE_SIZE)}
                   className="font-code-sm text-code-sm text-on-surface-variant hover:text-primary hover:bg-surface-container/50 px-4 py-2 rounded transition-all border border-transparent hover:border-primary/50"
                 >
-                  Load More Commits
+                  {t.activity.loadMore}
                 </button>
               </div>
             )}

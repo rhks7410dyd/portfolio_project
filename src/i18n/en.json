@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "home": "Home",
+    "experience": "Experience",
+    "projects": "Projects",
+    "activity": "Activity",
+    "skills": "Skills",
+    "contact": "Contact",
+    "downloadResume": "Download resume"
+  },
+  "home": {
+    "hello": "> Hello, world.",
+    "title": "KwanYong Jung",
+    "subtitle": "Server Developer Who Values Collaboration",
+    "description": "A junior developer aspiring to become a backend engineer, always striving to do better than yesterday.",
+    "viewProjects": "VIEW PROJECTS",
+    "contactMe": "CONTACT ME",
+    "featuredProjects": "Featured Projects",
+    "viewAllProjects": "VIEW ALL PROJECTS",
+    "skills": "Skills",
+    "viewAllSkills": "VIEW ALL SKILLS",
+    "experience": "Experience",
+    "viewFullHistory": "VIEW FULL HISTORY"
+  },
+  "projects": {
+    "title": "All Projects"
+  },
+  "experience": {
+    "title": "Experience"
+  },
+  "skills": {
+    "title": "Skills"
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Have a project in mind or just want to talk systems design? My inbox is open."
+  },
+  "activity": {
+    "title": "Commit History",
+    "description": "A detailed log of recent engineering activity and code contributions.",
+    "contributions": "Contributions (Last 12mo)",
+    "updated": "Updated",
+    "longestStreak": "Longest Streak",
+    "days": "Days",
+    "current": "Current",
+    "topRepos": "Top Active Repos",
+    "contributionGraph": "Contribution Graph",
+    "less": "Less",
+    "more": "More",
+    "recentCommits": "Recent Commits",
+    "loadMore": "Load More Commits",
+    "noData": "No activity data yet. This fills in once the GitHub Actions workflow runs."
+  },
+  "project": {
+    "seeDetails": "SEE DETAILS",
+    "github": "GitHub",
+    "internal": "Internal",
+    "live": "LIVE",
+    "code": "CODE",
+    "loading": "Loading...",
+    "detailsMissing": "Details for this project have not been written yet."
+  }
+}

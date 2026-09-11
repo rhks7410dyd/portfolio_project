@@ -1,5 +1,6 @@
 import { marked } from 'marked';
 import { useEffect, useState } from 'react';
+import { useLanguage } from '../i18n/LanguageContext';
 import type { Project } from './ProjectCard';
 
 const loadDetailMd = (slug: string) =>
@@ -14,6 +15,7 @@ const ProjectDetailModal = ({
 }) => {
   const [html, setHtml] = useState<string | null>(null);
   const [notFound, setNotFound] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     setHtml(null);
@@ -79,11 +81,10 @@ const ProjectDetailModal = ({
         {project.source === 'internal' ? (
           notFound ? (
             <p className="text-on-surface-variant text-sm">
-              상세 내용이 아직 작성되지 않았습니다. `src/data/projects/
-              {project.slug}.md` 파일을 추가해주세요.
+              {t.project.detailsMissing}
             </p>
           ) : html === null ? (
-            <p className="text-on-surface-variant text-sm">Loading...</p>
+            <p className="text-on-surface-variant text-sm">{t.project.loading}</p>
           ) : (
             <div
               className="prose-content text-on-background text-sm"
@@ -108,7 +109,7 @@ const ProjectDetailModal = ({
               <span className="material-symbols-outlined text-[16px]">
                 open_in_new
               </span>
-              LIVE
+              {t.project.live}
             </a>
           )}
           {project.codeUrl && (
@@ -121,7 +122,7 @@ const ProjectDetailModal = ({
               <span className="material-symbols-outlined text-[16px]">
                 code
               </span>
-              CODE
+              {t.project.code}
             </a>
           )}
         </div>

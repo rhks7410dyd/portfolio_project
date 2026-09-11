@@ -1,0 +1,22 @@
+[
+  {
+    "role": "시니어 시스템 엔지니어",
+    "company": "TechNova Solutions // 2021 - 현재",
+    "bullets": [
+      "마이크로서비스 전환을 설계하여 배포 시간을 40% 단축.",
+      "초당 10,000건 이상의 요청을 처리하는 분산 캐싱 전략 구축.",
+      "4명의 엔지니어로 구성된 팀을 이끌고 핵심 데이터 파이프라인 재설계."
+    ],
+    "tags": ["Go", "Kubernetes", "Kafka"],
+    "dotClassName": "bg-primary"
+  },
+  {
+    "role": "백엔드 개발자",
+    "company": "DataSync Inc. // 2018 - 2021",
+    "bullets": [
+      "모바일 및 웹 플랫폼을 지원하는 RESTful API 개발.",
+      "레거시 데이터베이스 쿼리를 최적화하여 읽기 속도 25% 개선."
+    ],
+    "dotClassName": "bg-surface-bright"
+  }
+]

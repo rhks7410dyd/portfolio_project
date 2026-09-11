@@ -1,23 +1,25 @@
 import { Link, useLocation } from 'react-router-dom';
+import { useLanguage } from '../i18n/LanguageContext';
 import ThemeToggle from './ThemeToggle';
-
-const NAV_LINKS = [
-  { label: 'Home', to: '/' },
-  { label: 'Experience', to: '/experience' },
-  { label: 'Projects', to: '/projects' },
-  { label: 'Activity', to: '/activity' },
-  { label: 'Skills', to: '/skills' },
-  { label: 'Contact', to: '/contact' },
-];
 
 const Nav = () => {
   const { pathname } = useLocation();
+  const { lang, t, switchTo } = useLanguage();
+
+  const NAV_LINKS = [
+    { label: t.nav.home, to: `/${lang}` },
+    { label: t.nav.experience, to: `/${lang}/experience` },
+    { label: t.nav.projects, to: `/${lang}/projects` },
+    { label: t.nav.activity, to: `/${lang}/activity` },
+    { label: t.nav.skills, to: `/${lang}/skills` },
+    { label: t.nav.contact, to: `/${lang}/contact` },
+  ];
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm transition-all duration-300 ease-in-out">
       <div className="flex justify-between items-center h-14 px-gutter max-w-container-max mx-auto">
         <Link
-          to="/"
+          to={`/${lang}`}
           className="font-headline-md text-headline-md font-bold text-primary tracking-tighter"
         >
           DEV_ARCHITECT
@@ -38,10 +40,17 @@ const Nav = () => {
           ))}
         </div>
         <div className="flex items-center gap-sm">
+          <button
+            type="button"
+            onClick={() => switchTo(lang === 'ko' ? 'en' : 'ko')}
+            className="font-code-sm text-code-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-high/50 px-2 py-1 rounded transition-all duration-300 ease-in-out"
+          >
+            {lang === 'ko' ? 'EN' : 'KO'}
+          </button>
           <ThemeToggle />
           <button
             type="button"
-            aria-label="Download resume"
+            aria-label={t.nav.downloadResume}
             className="text-primary hover:bg-surface-container-high/50 p-sm rounded transition-all duration-300 ease-in-out flex items-center justify-center"
           >
             <span className="material-symbols-outlined">download</span>
