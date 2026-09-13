@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-09-12T20:13:59.344Z",
+  "generatedAt": "2026-09-13T20:23:11.009Z",
   "username": "rhks7410dyd",
-  "totalContributionsLastYear": 316,
-  "totalPushedCommitsLast90Days": 29,
+  "totalContributionsLastYear": 314,
+  "totalPushedCommitsLast90Days": 34,
   "contributionWeeks": [
     [
       0,
@@ -473,13 +473,14 @@
       0
     ],
     [
+      0,
       0
     ]
   ],
   "topRepos": [
     {
       "name": "rhks7410dyd/portfolio_project",
-      "commits": 23
+      "commits": 28
     },
     {
       "name": "rhks7410dyd/effective-java",
@@ -487,6 +488,18 @@
     }
   ],
   "recentCommits": [
+    {
+      "repo": "portfolio_project",
+      "hash": "#4985eda",
+      "when": "2026-09-11T07:16:17Z",
+      "message": "Merge pull request #5 from rhks7410dyd/feat/translation"
+    },
+    {
+      "repo": "portfolio_project",
+      "hash": "#d162a44",
+      "when": "2026-09-11T07:12:57Z",
+      "message": "feat: translate home/contact copy and split experience/skills data to i18n JSON"
+    },
     {
       "repo": "portfolio_project",
       "hash": "#e8036b4",
@@ -534,18 +547,6 @@
       "hash": "#c0817df",
       "when": "2026-09-03T07:47:32Z",
       "message": "feat : storybook 새 컴포넌트 추가"
-    },
-    {
-      "repo": "portfolio_project",
-      "hash": "#8736674",
-      "when": "2026-09-04T07:03:16Z",
-      "message": "fix: fetch actual commits via compare API, not PushEvent payload"
-    },
-    {
-      "repo": "portfolio_project",
-      "hash": "#eadb4a6",
-      "when": "2026-09-04T07:07:47Z",
-      "message": "feat: add GitHub Pages deploy workflow"
     }
   ]
 }
