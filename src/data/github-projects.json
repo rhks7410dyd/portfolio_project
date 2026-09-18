@@ -1,6 +1,17 @@
 [
   {
     "icon": "code",
+    "title": "Study",
+    "description": "No description provided.",
+    "tags": [
+      "TypeScript"
+    ],
+    "codeUrl": "https://github.com/rhks7410dyd/Study",
+    "slug": "Study",
+    "source": "github"
+  },
+  {
+    "icon": "code",
     "title": "portfolio_project",
     "description": "No description provided.",
     "tags": [
@@ -107,15 +118,6 @@
     "tags": [],
     "codeUrl": "https://github.com/rhks7410dyd/test",
     "slug": "test",
-    "source": "github"
-  },
-  {
-    "icon": "code",
-    "title": "hello-spring-space",
-    "description": "hello-spring-space",
-    "tags": [],
-    "codeUrl": "https://github.com/rhks7410dyd/hello-spring-space",
-    "slug": "hello-spring-space",
     "source": "github"
   }
 ]
