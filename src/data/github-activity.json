@@ -1,18 +1,9 @@
 {
-  "generatedAt": "2026-09-18T20:27:50.753Z",
+  "generatedAt": "2026-09-19T20:06:42.680Z",
   "username": "rhks7410dyd",
   "totalContributionsLastYear": 323,
-  "totalPushedCommitsLast90Days": 35,
+  "totalPushedCommitsLast90Days": 37,
   "contributionWeeks": [
-    [
-      0,
-      2,
-      1,
-      0,
-      0,
-      0,
-      0
-    ],
     [
       0,
       0,
@@ -480,6 +471,9 @@
       0,
       2,
       0
+    ],
+    [
+      0
     ]
   ],
   "topRepos": [
@@ -493,10 +487,16 @@
     },
     {
       "name": "rhks7410dyd/Study",
-      "commits": 1
+      "commits": 3
     }
   ],
   "recentCommits": [
+    {
+      "repo": "Study",
+      "hash": "#a17fff2",
+      "when": "2026-09-18T08:45:35Z",
+      "message": "Obsidian vault 설정 추가 및 Python mutable default argument 학습 자료 정리"
+    },
     {
       "repo": "Study",
       "hash": "#b203cdd",
@@ -550,12 +550,6 @@
       "hash": "#e1ec461",
       "when": "2026-09-03T08:46:00Z",
       "message": "Merge pull request #4 from rhks7410dyd/worktree-github-activity-snapshot"
-    },
-    {
-      "repo": "portfolio_project",
-      "hash": "#27dcb12",
-      "when": "2026-09-03T07:42:34Z",
-      "message": "Merge pull request #2 from rhks7410dyd/worktree-multi-page-routes"
     }
   ]
 }
