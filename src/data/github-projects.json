@@ -1,17 +1,6 @@
 [
   {
     "icon": "code",
-    "title": "portfolio_project",
-    "description": "No description provided.",
-    "tags": [
-      "HTML"
-    ],
-    "codeUrl": "https://github.com/rhks7410dyd/portfolio_project",
-    "slug": "portfolio_project",
-    "source": "github"
-  },
-  {
-    "icon": "code",
     "title": "Study",
     "description": "No description provided.",
     "tags": [
@@ -19,6 +8,17 @@
     ],
     "codeUrl": "https://github.com/rhks7410dyd/Study",
     "slug": "Study",
+    "source": "github"
+  },
+  {
+    "icon": "code",
+    "title": "portfolio_project",
+    "description": "No description provided.",
+    "tags": [
+      "HTML"
+    ],
+    "codeUrl": "https://github.com/rhks7410dyd/portfolio_project",
+    "slug": "portfolio_project",
     "source": "github"
   },
   {
