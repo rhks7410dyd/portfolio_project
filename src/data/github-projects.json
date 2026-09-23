@@ -1,6 +1,15 @@
 [
   {
     "icon": "code",
+    "title": "factorio-ai-command-center",
+    "description": "No description provided.",
+    "tags": [],
+    "codeUrl": "https://github.com/rhks7410dyd/factorio-ai-command-center",
+    "slug": "factorio-ai-command-center",
+    "source": "github"
+  },
+  {
+    "icon": "code",
     "title": "portfolio_project",
     "description": "No description provided.",
     "tags": [
@@ -109,15 +118,6 @@
     "tags": [],
     "codeUrl": "https://github.com/rhks7410dyd/Lostark_for_myslef",
     "slug": "Lostark_for_myslef",
-    "source": "github"
-  },
-  {
-    "icon": "code",
-    "title": "test",
-    "description": "No description provided.",
-    "tags": [],
-    "codeUrl": "https://github.com/rhks7410dyd/test",
-    "slug": "test",
     "source": "github"
   }
 ]
