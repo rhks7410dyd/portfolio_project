@@ -1,15 +1,6 @@
 [
   {
     "icon": "code",
-    "title": "factorio-ai-command-center",
-    "description": "No description provided.",
-    "tags": [],
-    "codeUrl": "https://github.com/rhks7410dyd/factorio-ai-command-center",
-    "slug": "factorio-ai-command-center",
-    "source": "github"
-  },
-  {
-    "icon": "code",
     "title": "portfolio_project",
     "description": "No description provided.",
     "tags": [
@@ -17,6 +8,15 @@
     ],
     "codeUrl": "https://github.com/rhks7410dyd/portfolio_project",
     "slug": "portfolio_project",
+    "source": "github"
+  },
+  {
+    "icon": "code",
+    "title": "factorio-ai-command-center",
+    "description": "No description provided.",
+    "tags": [],
+    "codeUrl": "https://github.com/rhks7410dyd/factorio-ai-command-center",
+    "slug": "factorio-ai-command-center",
     "source": "github"
   },
   {
