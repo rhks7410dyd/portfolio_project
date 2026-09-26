@@ -1,18 +1,9 @@
 {
-  "generatedAt": "2026-09-25T21:08:32.027Z",
+  "generatedAt": "2026-09-26T20:41:30.812Z",
   "username": "rhks7410dyd",
   "totalContributionsLastYear": 324,
-  "totalPushedCommitsLast90Days": 37,
+  "totalPushedCommitsLast90Days": 35,
   "contributionWeeks": [
-    [
-      0,
-      0,
-      0,
-      1,
-      0,
-      0,
-      0
-    ],
     [
       1,
       0,
@@ -480,6 +471,9 @@
       0,
       0,
       0
+    ],
+    [
+      0
     ]
   ],
   "topRepos": [
@@ -490,10 +484,6 @@
     {
       "name": "rhks7410dyd/Study",
       "commits": 7
-    },
-    {
-      "name": "rhks7410dyd/effective-java",
-      "commits": 2
     }
   ],
   "recentCommits": [
