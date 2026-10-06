@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-05T23:47:12.342Z",
+  "generatedAt": "2026-10-06T22:22:37.344Z",
   "username": "rhks7410dyd",
   "totalContributionsLastYear": 321,
-  "totalPushedCommitsLast90Days": 21,
+  "totalPushedCommitsLast90Days": 16,
   "contributionWeeks": [
     [
       0,
@@ -475,13 +475,14 @@
     [
       0,
       0,
+      0,
       0
     ]
   ],
   "topRepos": [
     {
       "name": "rhks7410dyd/portfolio_project",
-      "commits": 14
+      "commits": 9
     },
     {
       "name": "rhks7410dyd/Study",
@@ -536,18 +537,6 @@
       "hash": "#7341963",
       "when": "2026-09-04T07:37:43Z",
       "message": "feat: replace raster-logo icon option with a drawn document/label badge"
-    },
-    {
-      "repo": "portfolio_project",
-      "hash": "#617da74",
-      "when": "2026-09-04T06:55:07Z",
-      "message": "fix: guard against PushEvents missing a commits payload"
-    },
-    {
-      "repo": "portfolio_project",
-      "hash": "#ff080f6",
-      "when": "2026-09-04T06:46:45Z",
-      "message": "Merge remote-tracking branch 'origin/main'"
     }
   ]
 }
