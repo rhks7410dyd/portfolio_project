@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-06T22:22:37.344Z",
+  "generatedAt": "2026-10-07T22:46:58.188Z",
   "username": "rhks7410dyd",
   "totalContributionsLastYear": 321,
-  "totalPushedCommitsLast90Days": 16,
+  "totalPushedCommitsLast90Days": 15,
   "contributionWeeks": [
     [
       0,
@@ -476,13 +476,14 @@
       0,
       0,
       0,
+      0,
       0
     ]
   ],
   "topRepos": [
     {
       "name": "rhks7410dyd/portfolio_project",
-      "commits": 9
+      "commits": 8
     },
     {
       "name": "rhks7410dyd/Study",
@@ -531,12 +532,6 @@
       "hash": "#8d7d181",
       "when": "2026-09-08T04:00:00Z",
       "message": "Merge branch 'main' of https://github.com/rhks7410dyd/portfolio_project"
-    },
-    {
-      "repo": "portfolio_project",
-      "hash": "#7341963",
-      "when": "2026-09-04T07:37:43Z",
-      "message": "feat: replace raster-logo icon option with a drawn document/label badge"
     }
   ]
 }
