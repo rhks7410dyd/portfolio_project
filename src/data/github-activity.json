@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-08T22:58:01.975Z",
+  "generatedAt": "2026-10-09T22:19:10.349Z",
   "username": "rhks7410dyd",
   "totalContributionsLastYear": 321,
-  "totalPushedCommitsLast90Days": 15,
+  "totalPushedCommitsLast90Days": 12,
   "contributionWeeks": [
     [
       0,
@@ -478,17 +478,18 @@
       0,
       0,
       0,
+      0,
       0
     ]
   ],
   "topRepos": [
     {
-      "name": "rhks7410dyd/portfolio_project",
-      "commits": 8
-    },
-    {
       "name": "rhks7410dyd/Study",
       "commits": 7
+    },
+    {
+      "name": "rhks7410dyd/portfolio_project",
+      "commits": 5
     }
   ],
   "recentCommits": [
@@ -521,18 +522,6 @@
       "hash": "#d162a44",
       "when": "2026-09-11T07:12:57Z",
       "message": "feat: translate home/contact copy and split experience/skills data to i18n JSON"
-    },
-    {
-      "repo": "portfolio_project",
-      "hash": "#e8036b4",
-      "when": "2026-09-08T05:58:55Z",
-      "message": "fix : json으로 실제 텍스트 분리"
-    },
-    {
-      "repo": "portfolio_project",
-      "hash": "#8d7d181",
-      "when": "2026-09-08T04:00:00Z",
-      "message": "Merge branch 'main' of https://github.com/rhks7410dyd/portfolio_project"
     }
   ]
 }
