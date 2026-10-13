@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-13T00:11:50.771Z",
+  "generatedAt": "2026-10-13T22:19:11.168Z",
   "username": "rhks7410dyd",
-  "totalContributionsLastYear": 321,
-  "totalPushedCommitsLast90Days": 12,
+  "totalContributionsLastYear": 327,
+  "totalPushedCommitsLast90Days": 10,
   "contributionWeeks": [
     [
       0,
@@ -475,6 +475,7 @@
     [
       0,
       0,
+      3,
       0
     ]
   ],
@@ -485,10 +486,22 @@
     },
     {
       "name": "rhks7410dyd/portfolio_project",
-      "commits": 5
+      "commits": 3
     }
   ],
   "recentCommits": [
+    {
+      "repo": "portfolio_project",
+      "hash": "#e427be1",
+      "when": "2026-10-13T07:06:32Z",
+      "message": "feat(notes): Practice tabs, category graph colors, skip duplicate note.md"
+    },
+    {
+      "repo": "portfolio_project",
+      "hash": "#ed1ae94",
+      "when": "2026-10-13T06:41:01Z",
+      "message": "Merge pull request #6 from rhks7410dyd/feat/notes"
+    },
     {
       "repo": "Study",
       "hash": "#2557be1",
@@ -506,18 +519,6 @@
       "hash": "#b203cdd",
       "when": "2026-09-18T06:09:06Z",
       "message": "그래프 노드 색상 카테고리 혼합 + 노드별 미세 변주, 불필요 백링크 정리"
-    },
-    {
-      "repo": "portfolio_project",
-      "hash": "#4985eda",
-      "when": "2026-09-11T07:16:17Z",
-      "message": "Merge pull request #5 from rhks7410dyd/feat/translation"
-    },
-    {
-      "repo": "portfolio_project",
-      "hash": "#d162a44",
-      "when": "2026-09-11T07:12:57Z",
-      "message": "feat: translate home/contact copy and split experience/skills data to i18n JSON"
     }
   ]
 }
