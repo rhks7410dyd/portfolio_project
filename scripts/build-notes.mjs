@@ -67,7 +67,10 @@ const buildVault = async (cfg) => {
   const source = resolve(ROOT, cfg.source);
   const outDir = join(OUT, cfg.id);
   const files = await walk(source);
-  const mdFiles = files.filter((f) => /\.md$/i.test(f.rel));
+  const ignore = (cfg.ignore ?? []).map((r) => new RegExp(r));
+  const mdFiles = files.filter(
+    (f) => /\.md$/i.test(f.rel) && !ignore.some((r) => r.test(f.rel)),
+  );
   const assetFiles = files.filter((f) => IMAGE_EXT.test(f.rel));
 
   const assets = new Set(assetFiles.map((f) => f.rel));

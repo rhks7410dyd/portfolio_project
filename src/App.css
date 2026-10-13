@@ -406,6 +406,56 @@ body {
   opacity: 1;
 }
 
+/* Practice notes: 🧩/✅/📄/📝 sections folded into tabs (scripts/notes/pipeline.mjs tabify) */
+.note-prose .practice-tab-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  background: var(--color-surface-container);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: 0.5rem;
+}
+
+.note-prose .practice-tab-btn {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.75rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  white-space: nowrap;
+  color: var(--color-on-surface-variant);
+  border: 1px solid transparent;
+  border-radius: 0.375rem;
+  transition: color 0.15s, background 0.15s;
+}
+
+.note-prose .practice-tab-btn:hover {
+  color: var(--color-on-surface);
+}
+
+.note-prose .practice-tab-btn.active {
+  color: var(--color-primary);
+  background: var(--color-surface);
+  border-color: var(--color-outline-variant);
+}
+
+.note-prose .practice-tab-panel {
+  display: none;
+  margin-top: 1rem;
+}
+
+.note-prose .practice-tab-panel.active {
+  display: block;
+}
+
+.note-prose .practice-tab-panel > * + * {
+  margin-top: 1rem;
+}
+
 .note-prose blockquote:not(.callout) {
   padding-left: 1rem;
   border-left: 3px solid var(--color-outline-variant);
