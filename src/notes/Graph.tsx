@@ -18,6 +18,29 @@ type Props = {
 // labels for every node are fine for small vaults; bigger ones show them on hover
 const LABEL_ALL_MAX = 40;
 
+// Concepts = cyan, Language = magenta, Practice = yellow (same as the Quartz vault graph).
+// A node takes the mix of its own and its neighbours' categories, nudged per node by id.
+const CATS: Record<string, [number, number, number]> = {
+  Concepts: [34, 211, 238],
+  Language: [232, 121, 249],
+  Practice: [250, 204, 21],
+};
+const catOf = (id: string) => CATS[id.split('/')[0]];
+
+const nodeColor = (id: string, neighbours: string[]) => {
+  const cats = [id, ...neighbours].map(catOf).filter(Boolean);
+  if (cats.length === 0) return undefined;
+  const [r, g, b] = [0, 1, 2].map(
+    (i) => cats.reduce((sum, c) => sum + c[i], 0) / cats.length,
+  );
+  let h = 0;
+  for (const ch of id) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
+  const shade = ((h % 41) - 20) / 100; // -0.2 .. +0.2, lighter/darker
+  const mix = (v: number) =>
+    Math.round(shade > 0 ? v + (255 - v) * shade : v * (1 + shade));
+  return `rgb(${mix(r)} ${mix(g)} ${mix(b)})`;
+};
+
 const Graph = ({
   notes,
   vaultId,
@@ -39,6 +62,11 @@ const Graph = ({
       if (l.source.id === hover) near.add(l.target.id);
       if (l.target.id === hover) near.add(l.source.id);
     }
+  }
+  const adj = new Map<string, string[]>();
+  for (const l of g.links) {
+    adj.set(l.source.id, [...(adj.get(l.source.id) ?? []), l.target.id]);
+    adj.set(l.target.id, [...(adj.get(l.target.id) ?? []), l.source.id]);
   }
   const labelAll = g.nodes.length <= LABEL_ALL_MAX;
 
@@ -81,7 +109,12 @@ const Graph = ({
               cx={n.x}
               cy={n.y}
               r={active ? 7 : 4 + Math.min(n.degree, 6) * 0.5}
-              className={`${active ? 'fill-primary' : 'fill-outline hover:fill-primary'} transition-opacity ${dim ? 'opacity-20' : ''}`}
+              style={
+                active
+                  ? undefined
+                  : { fill: nodeColor(n.id, adj.get(n.id) ?? []) }
+              }
+              className={`${active ? 'fill-primary' : 'fill-outline'} transition-opacity ${dim ? 'opacity-20' : ''}`}
             />
             {showLabel && (
               <text

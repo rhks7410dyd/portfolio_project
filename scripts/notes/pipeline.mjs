@@ -215,6 +215,69 @@ const collectToc = (hast) => {
   return toc;
 };
 
+// Practice pages (merged by the vault's gen-practice script) hold one h2 per file:
+// 🧩 problem-origin / ✅ problem-solve / 📄 other code / 📝 note. Fold them into tabs.
+const TAB_KINDS = { '🧩': 'origin', '✅': 'solve', '📝': 'note', '📄': 'code' };
+const tabOf = (n) => {
+  if (n.type !== 'element' || n.tagName !== 'h2') return null;
+  const text = hastText(n).trim();
+  const icon = Object.keys(TAB_KINDS).find((k) => text.startsWith(k));
+  return icon
+    ? { icon, kind: TAB_KINDS[icon], label: text.slice(icon.length).trim() }
+    : null;
+};
+
+export const tabify = (hast) => {
+  const kids = hast.children;
+  const first = kids.findIndex(tabOf);
+  if (first < 0 || kids.filter(tabOf).length < 2) return;
+  const tabs = [];
+  for (const n of kids.slice(first)) {
+    const t = tabOf(n);
+    if (t) tabs.push({ ...t, nodes: [] });
+    else tabs.at(-1).nodes.push(n);
+  }
+  const el = (tagName, properties, children) => ({
+    type: 'element',
+    tagName,
+    properties,
+    children,
+  });
+  const txt = (value) => ({ type: 'text', value });
+  const bar = el(
+    'div',
+    { className: ['practice-tab-bar'], role: 'tablist' },
+    tabs.map((t, i) =>
+      el(
+        'button',
+        {
+          type: 'button',
+          role: 'tab',
+          'aria-selected': String(i === 0),
+          className: ['practice-tab-btn', ...(i === 0 ? ['active'] : [])],
+        },
+        [el('span', {}, [txt(t.icon)]), el('span', {}, [txt(t.label)])],
+      ),
+    ),
+  );
+  const panels = tabs.map((t, i) =>
+    el(
+      'div',
+      {
+        role: 'tabpanel',
+        'data-kind': t.kind,
+        className: ['practice-tab-panel', ...(i === 0 ? ['active'] : [])],
+      },
+      t.nodes,
+    ),
+  );
+  kids.splice(
+    first,
+    kids.length - first,
+    el('div', { className: ['practice-tabs'] }, [bar, ...panels]),
+  );
+};
+
 const CJK =
   /[\p{Script=Hangul}\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}]/gu;
 export const readingMinutes = (text) => {
@@ -265,6 +328,7 @@ export const renderNote = async (raw, ctx) => {
       fallbackLanguage: 'text',
     })
     .run(tree);
+  tabify(hast);
   const html = unified().use(rehypeStringify).stringify(hast);
 
   const date = data.date ?? data.updated;

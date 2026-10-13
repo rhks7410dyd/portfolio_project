@@ -5,6 +5,7 @@
       "source": "../AI-Pair-Programming/vault",
       "icon": "menu_book",
       "lang": "ko",
+      "ignore": ["^Practice/.+/note[.]md$"],
       "title": {
         "ko": "AI 페어 프로그래밍",
         "en": "AI Pair Programming"

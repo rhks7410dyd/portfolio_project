@@ -27,6 +27,21 @@ const NoteBody = ({ html, vaultId, lang }: Props) => {
       e.altKey
     )
       return;
+    const tab = (e.target as HTMLElement).closest<HTMLElement>(
+      '.practice-tab-btn',
+    );
+    if (tab) {
+      const box = tab.closest('.practice-tabs');
+      const i = [...(tab.parentElement?.children ?? [])].indexOf(tab);
+      box?.querySelectorAll('.practice-tab-btn').forEach((b, j) => {
+        b.classList.toggle('active', j === i);
+        b.setAttribute('aria-selected', String(j === i));
+      });
+      box
+        ?.querySelectorAll('.practice-tab-panel')
+        .forEach((p, j) => p.classList.toggle('active', j === i));
+      return;
+    }
     const a = (e.target as HTMLElement).closest<HTMLAnchorElement>(
       'a[data-note]',
     );
