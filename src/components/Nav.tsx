@@ -12,6 +12,7 @@ const Nav = () => {
     { label: t.nav.projects, to: `/${lang}/projects` },
     { label: t.nav.activity, to: `/${lang}/activity` },
     { label: t.nav.skills, to: `/${lang}/skills` },
+    { label: t.nav.notes, to: `/${lang}/notes` },
     { label: t.nav.contact, to: `/${lang}/contact` },
   ];
 
@@ -30,7 +31,8 @@ const Nav = () => {
               key={link.to}
               to={link.to}
               className={
-                pathname === link.to
+                pathname === link.to ||
+                (link.to !== `/${lang}` && pathname.startsWith(`${link.to}/`))
                   ? 'text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md'
                   : 'text-on-surface-variant hover:text-primary transition-colors duration-200 hover:bg-surface-container-high/50 px-2 py-1 rounded font-body-md text-body-md'
               }

@@ -1,0 +1,4 @@
+{
+  "fields": ["title", "tags", "text"],
+  "storeFields": ["title", "excerpt"]
+}

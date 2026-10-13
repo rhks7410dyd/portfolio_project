@@ -5,6 +5,7 @@
     "projects": "Projects",
     "activity": "Activity",
     "skills": "Skills",
+    "notes": "Notes",
     "contact": "Contact",
     "downloadResume": "Download resume"
   },
@@ -59,5 +60,34 @@
     "code": "CODE",
     "loading": "Loading...",
     "detailsMissing": "Details for this project have not been written yet."
+  },
+  "notes": {
+    "title": "Notes",
+    "search": "Search",
+    "close": "Close",
+    "graphLocal": "Related notes",
+    "subtitle": "Obsidian vaults, published as a digital garden.",
+    "searchPlaceholder": "Search notes...",
+    "openVault": "OPEN VAULT",
+    "noteCount": "{n} NOTES",
+    "updated": "Updated {date}",
+    "recent": "Recent notes",
+    "folders": "Folders",
+    "tags": "Tags",
+    "onThisPage": "On this page",
+    "backlinks": "Backlinks",
+    "noBacklinks": "No notes link here yet.",
+    "graph": "Graph",
+    "minRead": "{n} min read",
+    "loading": "Loading...",
+    "notFound": "This note does not exist.",
+    "vaultNotFound": "Vault not found.",
+    "loadError": "Failed to load notes.",
+    "allVaults": "All vaults",
+    "noResults": "No results for \"{q}\".",
+    "copy": "Copy",
+    "copied": "Copied",
+    "filterTag": "Filtering by #{tag}",
+    "clearFilter": "Clear"
   }
 }
