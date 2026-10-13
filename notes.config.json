@@ -1,0 +1,18 @@
+{
+  "vaults": [
+    {
+      "id": "ai-pair-programming",
+      "source": "../AI-Pair-Programming/vault",
+      "icon": "menu_book",
+      "lang": "ko",
+      "title": {
+        "ko": "AI 페어 프로그래밍",
+        "en": "AI Pair Programming"
+      },
+      "description": {
+        "ko": "AI와 함께 코딩하며 정리한 개념, 디버깅 기록, 연습 노트.",
+        "en": "Concepts, debugging logs and practice notes from coding with AI."
+      }
+    }
+  ]
+}

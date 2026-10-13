@@ -281,3 +281,201 @@ body {
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
 }
+
+/* ---- notes: rendered Obsidian markdown (src/notes/NoteBody.tsx) ---- */
+.note-prose {
+  --callout-color: var(--color-primary);
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--color-on-surface);
+  overflow-wrap: anywhere;
+}
+
+.note-prose > * + * {
+  margin-top: 1rem;
+}
+
+.note-prose h2,
+.note-prose h3,
+.note-prose h4 {
+  scroll-margin-top: 80px;
+  color: var(--color-on-background);
+  font-weight: 600;
+  line-height: 1.3;
+  margin-top: 2rem;
+}
+
+.note-prose h2 {
+  font-size: 1.5rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-outline-variant) 40%, transparent);
+}
+
+.note-prose h3 {
+  font-size: 1.2rem;
+}
+
+.note-prose h4 {
+  font-size: 1.05rem;
+}
+
+.note-prose ul,
+.note-prose ol {
+  padding-left: 1.5rem;
+}
+
+.note-prose ul {
+  list-style: disc;
+}
+
+.note-prose ol {
+  list-style: decimal;
+}
+
+.note-prose li + li {
+  margin-top: 0.25rem;
+}
+
+.note-prose li.task-list-item {
+  list-style: none;
+  margin-left: -1.25rem;
+}
+
+.note-prose a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.note-prose a.wikilink {
+  text-decoration-style: dotted;
+}
+
+.note-prose .wikilink-broken {
+  font-style: normal;
+  color: var(--color-outline);
+  text-decoration: line-through;
+}
+
+.note-prose :not(pre) > code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875em;
+  background: var(--color-surface-container-high);
+  padding: 0.1rem 0.35rem;
+  border-radius: 0.25rem;
+}
+
+.note-prose pre {
+  position: relative;
+  overflow-x: auto;
+  padding: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  border: 1px solid color-mix(in srgb, var(--color-outline-variant) 50%, transparent);
+  border-radius: 0.25rem;
+  background: var(--color-surface-container-lowest) !important;
+}
+
+/* shiki dual theme: it writes both palettes as css variables, pick by site theme */
+.note-prose .shiki span {
+  color: var(--shiki-light);
+}
+
+.dark .note-prose .shiki span {
+  color: var(--shiki-dark);
+}
+
+.note-prose .copy-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.125rem 0.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--color-on-surface-variant);
+  background: var(--color-surface-container);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: 0.25rem;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.note-prose pre:hover .copy-btn,
+.note-prose .copy-btn:focus-visible {
+  opacity: 1;
+}
+
+.note-prose blockquote:not(.callout) {
+  padding-left: 1rem;
+  border-left: 3px solid var(--color-outline-variant);
+  color: var(--color-on-surface-variant);
+}
+
+.note-prose table {
+  display: block;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+
+.note-prose th,
+.note-prose td {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--color-outline-variant);
+  text-align: left;
+}
+
+.note-prose th {
+  background: var(--color-surface-container);
+}
+
+.note-prose img {
+  max-width: 100%;
+  border-radius: 0.25rem;
+}
+
+.note-prose hr {
+  border: 0;
+  border-top: 1px solid var(--color-outline-variant);
+}
+
+/* callouts: > [!type] title */
+.note-prose .callout {
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--callout-color);
+  border-radius: 0.25rem;
+  background: color-mix(in srgb, var(--callout-color) 8%, transparent);
+}
+
+.note-prose .callout-title {
+  font-weight: 700;
+  color: var(--callout-color);
+}
+
+.note-prose .callout > * + * {
+  margin-top: 0.5rem;
+}
+
+.note-prose .callout[data-callout='tip'],
+.note-prose .callout[data-callout='success'],
+.note-prose .callout[data-callout='check'],
+.note-prose .callout[data-callout='done'] {
+  --callout-color: var(--color-tertiary);
+}
+
+.note-prose .callout[data-callout='warning'],
+.note-prose .callout[data-callout='caution'],
+.note-prose .callout[data-callout='question'],
+.note-prose .callout[data-callout='faq'],
+.note-prose .callout[data-callout='help'] {
+  --callout-color: var(--color-secondary);
+}
+
+.note-prose .callout[data-callout='danger'],
+.note-prose .callout[data-callout='error'],
+.note-prose .callout[data-callout='bug'],
+.note-prose .callout[data-callout='failure'],
+.note-prose .callout[data-callout='fail'],
+.note-prose .callout[data-callout='missing'] {
+  --callout-color: var(--color-error);
+}

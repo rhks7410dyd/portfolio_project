@@ -5,6 +5,7 @@
     "projects": "프로젝트",
     "activity": "활동",
     "skills": "기술",
+    "notes": "노트",
     "contact": "연락처",
     "downloadResume": "이력서 다운로드"
   },
@@ -59,5 +60,34 @@
     "code": "코드",
     "loading": "불러오는 중...",
     "detailsMissing": "아직 상세 내용이 작성되지 않았습니다."
+  },
+  "notes": {
+    "title": "노트",
+    "search": "검색",
+    "close": "닫기",
+    "graphLocal": "연결된 노트",
+    "subtitle": "Obsidian 볼트를 디지털 가든으로 공개합니다.",
+    "searchPlaceholder": "노트 검색...",
+    "openVault": "볼트 열기",
+    "noteCount": "노트 {n}개",
+    "updated": "{date} 업데이트",
+    "recent": "최근 노트",
+    "folders": "폴더",
+    "tags": "태그",
+    "onThisPage": "목차",
+    "backlinks": "백링크",
+    "noBacklinks": "이 노트를 가리키는 노트가 없습니다.",
+    "graph": "그래프",
+    "minRead": "읽는 데 {n}분",
+    "loading": "불러오는 중...",
+    "notFound": "존재하지 않는 노트입니다.",
+    "vaultNotFound": "볼트를 찾을 수 없습니다.",
+    "loadError": "노트를 불러오지 못했습니다.",
+    "allVaults": "전체 볼트",
+    "noResults": "\"{q}\"에 대한 결과가 없습니다.",
+    "copy": "복사",
+    "copied": "복사됨",
+    "filterTag": "#{tag} 필터 중",
+    "clearFilter": "해제"
   }
 }

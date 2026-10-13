@@ -8,16 +8,24 @@ const LocaleLayout = () => {
   const { lang } = useParams<{ lang: string }>();
   const location = useLocation();
 
-  if (!lang || !SUPPORTED_LANGS.includes(lang as (typeof SUPPORTED_LANGS)[number])) {
+  if (
+    !lang ||
+    !SUPPORTED_LANGS.includes(lang as (typeof SUPPORTED_LANGS)[number])
+  ) {
     const rest = location.pathname.replace(/^\/[^/]+/, '');
     return <Navigate to={`/${detectPreferredLang()}${rest}`} replace />;
   }
+
+  // a vault (/notes/:vaultId/...) is a 3-column reading layout and needs more than the 1100px container
+  const wide = /^\/[^/]+\/notes\/[^/]+/.test(location.pathname);
 
   return (
     <LanguageProvider lang={lang as (typeof SUPPORTED_LANGS)[number]}>
       <div className="min-h-screen flex flex-col font-body-md text-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
         <Nav />
-        <main className="flex-grow pt-[80px] pb-xl px-gutter max-w-container-max mx-auto w-full flex flex-col gap-xl">
+        <main
+          className={`flex-grow pt-[80px] pb-xl px-gutter ${wide ? 'max-w-[1440px]' : 'max-w-container-max'} mx-auto w-full flex flex-col gap-xl`}
+        >
           <Outlet />
         </main>
         <Footer />
