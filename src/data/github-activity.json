@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-18T20:09:53.555Z",
+  "generatedAt": "2026-10-19T22:01:50.163Z",
   "username": "rhks7410dyd",
   "totalContributionsLastYear": 327,
-  "totalPushedCommitsLast90Days": 11,
+  "totalPushedCommitsLast90Days": 9,
   "contributionWeeks": [
     [
       0,
@@ -474,17 +474,18 @@
     ],
     [
       0,
+      0,
       0
     ]
   ],
   "topRepos": [
     {
-      "name": "rhks7410dyd/Study",
-      "commits": 6
-    },
-    {
       "name": "rhks7410dyd/portfolio_project",
       "commits": 5
+    },
+    {
+      "name": "rhks7410dyd/Study",
+      "commits": 4
     }
   ],
   "recentCommits": [
@@ -511,12 +512,6 @@
       "hash": "#2557be1",
       "when": "2026-09-21T07:42:43Z",
       "message": "Add Python def concept research notes (WIP)"
-    },
-    {
-      "repo": "Study",
-      "hash": "#a17fff2",
-      "when": "2026-09-18T08:45:35Z",
-      "message": "Obsidian vault 설정 추가 및 Python mutable default argument 학습 자료 정리"
     }
   ]
 }
