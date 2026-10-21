@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-20T21:17:53.542Z",
+  "generatedAt": "2026-10-21T21:17:39.470Z",
   "username": "rhks7410dyd",
   "totalContributionsLastYear": 327,
-  "totalPushedCommitsLast90Days": 9,
+  "totalPushedCommitsLast90Days": 5,
   "contributionWeeks": [
     [
       0,
@@ -476,6 +476,7 @@
       0,
       0,
       0,
+      0,
       0
     ]
   ],
@@ -483,10 +484,6 @@
     {
       "name": "rhks7410dyd/portfolio_project",
       "commits": 5
-    },
-    {
-      "name": "rhks7410dyd/Study",
-      "commits": 4
     }
   ],
   "recentCommits": [
@@ -507,12 +504,6 @@
       "hash": "#ed1ae94",
       "when": "2026-10-13T06:41:01Z",
       "message": "Merge pull request #6 from rhks7410dyd/feat/notes"
-    },
-    {
-      "repo": "Study",
-      "hash": "#2557be1",
-      "when": "2026-09-21T07:42:43Z",
-      "message": "Add Python def concept research notes (WIP)"
     }
   ]
 }
