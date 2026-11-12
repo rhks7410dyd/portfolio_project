@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-12T00:06:08.160Z",
+  "generatedAt": "2026-11-12T23:14:48.378Z",
   "username": "rhks7410dyd",
   "totalContributionsLastYear": 289,
-  "totalPushedCommitsLast90Days": 5,
+  "totalPushedCommitsLast90Days": 2,
   "contributionWeeks": [
     [
       2,
@@ -477,13 +477,14 @@
       0,
       0,
       0,
+      0,
       0
     ]
   ],
   "topRepos": [
     {
       "name": "rhks7410dyd/portfolio_project",
-      "commits": 5
+      "commits": 2
     }
   ],
   "recentCommits": [
@@ -492,18 +493,6 @@
       "hash": "#bd3a7db",
       "when": "2026-10-13T07:48:03Z",
       "message": "Merge pull request #7 from rhks7410dyd/feat/notes"
-    },
-    {
-      "repo": "portfolio_project",
-      "hash": "#e427be1",
-      "when": "2026-10-13T07:06:32Z",
-      "message": "feat(notes): Practice tabs, category graph colors, skip duplicate note.md"
-    },
-    {
-      "repo": "portfolio_project",
-      "hash": "#ed1ae94",
-      "when": "2026-10-13T06:41:01Z",
-      "message": "Merge pull request #6 from rhks7410dyd/feat/notes"
     }
   ]
 }
